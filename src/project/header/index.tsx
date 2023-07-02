@@ -1,29 +1,40 @@
-import { NavLink } from "react-router-dom"
-import style from "./index.module.css"
-import { Container, Row } from "../../my-lib/layout"
-import { Button } from "../../my-lib/components/buttons"
-import { Avatar, Image } from "../../my-lib/components/image"
-import { Menu, MenuItem } from "../../my-lib/blocks/menu"
+import { NavLink } from "react-router-dom";
+import { Box, Container, Row } from "../../my-lib/layout";
+import { Button } from "../../my-lib/components/buttons";
+import { Avatar, Image } from "../../my-lib/components/image";
+import { Menu, MenuItem } from "../../my-lib/blocks/menu";
+import { LHeader } from "../../my-lib/sections/header";
 
+const menuItems = [
+  { link: '/', name: 'Home' },
+  { link: '/components', name: 'Components' },
+  { link: '/blocks', name: 'Blocks' },
+  { link: '/sections', name: 'Sections' },
+]
 
 const Header = () => {
   return (
-    <header className={style.header}>
+    <LHeader bg='#F6EFE8'>
       <Container>
-        <Row py={25}>
-          <Avatar>
-            <Image src="/logo.png" alt="logo" />
-          </Avatar>
-          <Menu>
-            <MenuItem><NavLink to={'/'}></NavLink></MenuItem>
-            <MenuItem><NavLink to={'/components'}>Components</NavLink></MenuItem>
-            <MenuItem><NavLink to={'/blocks'}>Blocks</NavLink></MenuItem>
-            <MenuItem><NavLink to={'/sections'}>Sections</NavLink></MenuItem>
-          </Menu>
+        <Row pt={15} pb={15} >
+          <Box display={'flex'}>
+            <Avatar shadowColor={'pink'} size={70} mr={20}>
+              <Image src="/logo.png" alt="logo" />
+
+            </Avatar>
+            <Menu display={'flex'} >
+              {
+                menuItems.map((e) => (
+                  <MenuItem key={e.link} fs={'20px'} color={'black'} letterSpacing={'1px'}><NavLink to={e.link}>{e.name}</NavLink></MenuItem>
+                ))
+              }
+
+            </Menu>
+          </Box>
           <Button>Read more</Button>
         </Row>
       </Container>
-    </header>
+    </LHeader>
   )
 }
 

@@ -1,19 +1,39 @@
-import { queryAllByDisplayValue } from '@testing-library/react'
+
 import styled from 'styled-components'
 
-export const Menu = styled.ul`
-  display:flex;
+
+
+
+interface IMenu {
+  display: 'flex' | 'block',
+}
+
+interface IMenuItem {
+  textTransform?: 'uppercase' | 'lowercase' | 'capitalize',
+  fs?: string,
+  color?:string,
+  letterSpacing?: string,
+  mt?: number,
+  mb?: number,
+  ml?: number,
+  mr?: number,
+}
+
+export const Menu = styled.ul<IMenu>`
+  display: ${(props) => props.display};
   align-items:center;  
 `
-export const MenuItem = styled.li`
-   margin-left:20px;
-   font-size: 16px;
-   letter-spacing: 1px;
-   &:first-child{
-    margin-left:0;
-   } 
+export const MenuItem = styled.li<IMenuItem>`
+     margin:
+     ${(p) => p.mt ?? 0}px
+     ${(p) => p.mr ?? 0}px
+     ${(p) => p.mb ?? 0}px
+     ${(p) => p.ml ?? 0}px;
+   font-size: ${(p) => p.fs};
+   letter-spacing:${(p) => p.letterSpacing} ; 
    a{
-    text-decoration:none;
-    text-transform:uppercase;
+    color: ${(p)=> p.color};
+    text-decoration: none;
+    text-Transform: ${(p) => p.textTransform};
    }
 `

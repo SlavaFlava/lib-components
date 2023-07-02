@@ -1,10 +1,29 @@
 import styled from 'styled-components'
+import { IGlobal } from '../models/global'
 
-export const Avatar = styled.div`
-width:50px;
-height:50px;
-border-radius:50%;
+interface IAvatar extends IGlobal {
+  br?: string,
+  shadow?: boolean,
+  shadowColor?: string,
+  size?:number,
+}
+
+
+
+export const Avatar = styled.div<IAvatar>`
+width: ${(p)=> p.size ?? 50}px;
+height: ${(p)=> p.size ?? 50}px;
+border-radius: ${(p)=> p.br ?? '50%'};
 overflow: hidden;
+display: 'flex';
+align-items:'center';
+justify-content:'center';
+background: ${(p) => p.bg};
+box-shadow: ${(p) => p.shadow
+    ?
+    `0px 0px 9px ${p.shadowColor ?? 'grey'} `
+    :
+    false};
 `
 
 export const Image = styled.img`
@@ -12,4 +31,4 @@ export const Image = styled.img`
   height:100%;
   object-fit:cover;
   object-position:center;
-`
+  ` 
