@@ -16,9 +16,9 @@ const Header = () => {
   return (
     <LHeader bg='#F6EFE8'>
       <Container>
-        <Row pt={15} pb={15} >
+        <Row pt={'15px'} pb={'15px'} >
           <Box display={'flex'}>
-            <Avatar shadowColor={'pink'} size={70} mr={20}>
+            <Avatar shadowColor={'pink'} size={'70px'} mr={'20px'}>
               <Image src="/logo.png" alt="logo" />
 
             </Avatar>

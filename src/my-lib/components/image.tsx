@@ -5,19 +5,22 @@ interface IAvatar extends IGlobal {
   br?: string,
   shadow?: boolean,
   shadowColor?: string,
-  size?:number,
+  size?: string,
+  fontSize?: string,
 }
 
 
 
 export const Avatar = styled.div<IAvatar>`
-width: ${(p)=> p.size ?? 50}px;
-height: ${(p)=> p.size ?? 50}px;
-border-radius: ${(p)=> p.br ?? '50%'};
+width: ${(p) => p.size ?? 50};
+height: ${(p) => p.size ?? 50};
+border-radius: ${(p) => p.br ?? '50%'};
+color: ${(p) => p.color};
+font-size: ${(p) => p.fontSize ?? '16px'};
 overflow: hidden;
-display: 'flex';
-align-items:'center';
-justify-content:'center';
+display: flex;
+align-items:center;
+justify-content:center;
 background: ${(p) => p.bg};
 box-shadow: ${(p) => p.shadow
     ?

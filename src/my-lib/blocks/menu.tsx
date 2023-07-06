@@ -1,22 +1,18 @@
 
 import styled from 'styled-components'
+import { IGlobal } from '../models/global'
 
 
 
 
 interface IMenu {
-  display: 'flex' | 'block',
+  display?: 'flex' | 'block',
 }
 
-interface IMenuItem {
+interface IMenuItem extends IGlobal {
   textTransform?: 'uppercase' | 'lowercase' | 'capitalize',
   fs?: string,
-  color?:string,
   letterSpacing?: string,
-  mt?: number,
-  mb?: number,
-  ml?: number,
-  mr?: number,
 }
 
 export const Menu = styled.ul<IMenu>`
@@ -25,12 +21,13 @@ export const Menu = styled.ul<IMenu>`
 `
 export const MenuItem = styled.li<IMenuItem>`
      margin:
-     ${(p) => p.mt ?? 0}px
-     ${(p) => p.mr ?? 0}px
-     ${(p) => p.mb ?? 0}px
-     ${(p) => p.ml ?? 0}px;
+     ${(p) => p.mt ?? 0}
+     ${(p) => p.mr ?? '20px'}
+     ${(p) => p.mb ?? 0}
+     ${(p) => p.ml ?? 0};
    font-size: ${(p) => p.fs};
-   letter-spacing:${(p) => p.letterSpacing} ; 
+   letter-spacing:${(p) => p.letterSpacing}; 
+   text-Transform: ${(p) => p.textTransform};
    a{
     color: ${(p)=> p.color};
     text-decoration: none;

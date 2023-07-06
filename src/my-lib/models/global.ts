@@ -1,14 +1,14 @@
 
 
 export interface IGlobal {
-    pt?: number,
-    pb?: number,
-    pl?: number,
-    pr?: number,
-    mt?: number,
-    mb?: number,
-    ml?: number,
-    mr?: number,
+    pt?: string,
+    pb?: string,
+    pl?: string,
+    pr?: string,
+    mt?: string,
+    mb?: string,
+    ml?: string,
+    mr?: string,
     bg?:string,
     color?: string
   }
