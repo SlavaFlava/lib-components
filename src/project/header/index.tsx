@@ -31,7 +31,7 @@ const Header = () => {
             </Menu>
               
           </Box>
-          <Button>Read More</Button>
+          <Button hover={'reverseBorder'}>Read More</Button>
         </Row>
       </Container>
     </LHeader>

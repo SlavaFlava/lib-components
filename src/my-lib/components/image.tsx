@@ -37,6 +37,7 @@ export const Avatar = styled.div<IAvatar>`
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
+${(p)=> p.sx};
 `
 
 export const Image = styled.img<IImage>`

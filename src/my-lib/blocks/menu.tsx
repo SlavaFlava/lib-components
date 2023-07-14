@@ -24,6 +24,7 @@ export const Menu = styled.ul<IMenu>`
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
+${(p)=> p.sx};
 `
 export const MenuItem = styled.li<IMenuItem>`
  font-size: ${(p) => p.fs};
@@ -38,6 +39,7 @@ export const MenuItem = styled.li<IMenuItem>`
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
+${(p)=> p.sx};
  a{
   color: ${(p) => p.color};
   text-decoration: none;

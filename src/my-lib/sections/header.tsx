@@ -24,4 +24,5 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
+${(p)=> p.sx};
 `

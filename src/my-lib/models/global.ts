@@ -11,4 +11,5 @@ export interface IGlobal {
   mr?: string,
   bg?: string,
   color?: string,
+  sx?: string,
 }
