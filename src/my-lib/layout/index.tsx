@@ -34,10 +34,12 @@ export const Row = styled.div<IRow>`
   align-items: ${(p) => p.alignItems};
   color: ${(p) => p.color};
   background: ${(p) => p.bg};
+  padding: ${(p) => p.p};
   padding-top: ${(p) => p.pt};
   padding-bottom: ${(p) => p.pb};
   padding-left: ${(p) => p.pl};
   padding-right: ${(p) => p.pr};
+  margin: ${(p) => p.m};
   margin-top: ${(p) => p.mt};
   margin-bottom: ${(p) => p.mb};
   margin-left: ${(p) => p.ml};
@@ -92,8 +94,8 @@ flex-basis: ${(p) => p.size == 1 ? `calc(8.3% - ${p.spacing ?? '15px'})` :
                   p.size == 9 ? `calc(75% - ${p.spacing ?? '15px'})` :
                     p.size == 10 ? `calc(83.3% - ${p.spacing ?? '15px'})` :
                       p.size == 11 ? `calc(91.6% - ${p.spacing ?? '15px'})` :
-                        p.size == 12 ? `calc(100% - ${p.spacing ?? '15px'})` :
-                          'calc(100%)'
+                        p.size == 12 ? `calc(100% - ${p.spacing ?? '0'})` :
+                          'calc(100%)' 
   };
  color: ${(p) => p.color};
  background: ${(p) => p.bg};
