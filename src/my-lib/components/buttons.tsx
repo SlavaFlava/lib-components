@@ -5,7 +5,7 @@ import { IGlobal } from '../models/global'
 interface IButton extends IGlobal {
   display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
   justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-  alignItems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
+  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
   fs?: string,
   fw?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
   minHeight?: string
@@ -14,8 +14,8 @@ interface IButton extends IGlobal {
   ls?: string,
   br?: string,
   border?: string,
-  shadow?: boolean,
-  shadowColor?: string,
+  shadow?: string,
+  shadowcolor?: string,
   boxShadow?: string,
   hover?: 'reverse' | 'reverseBorder' | 'opacity'
   textTransform?: 'uppercase' | 'lowercase' | 'capitalise' | 'unset'
@@ -32,7 +32,7 @@ export const Button = styled.button<IButton>`
   opacity: ${(p) => p.display ?? 1};
   display: ${(p) => p.display ?? 'flex'};
   justify-content: ${(p) => p.justifyContent ?? 'center'};
-  align-items: ${(p) => p.alignItems ?? 'center'};
+  align-items: ${(p) => p.alignitems ?? 'center'};
   border-style: none;
   border-radius: ${(p) => p.br ?? '5px'};
   border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
@@ -42,7 +42,7 @@ export const Button = styled.button<IButton>`
   min-width: ${(p) => p.minWidth};
   outline: none;
   transition: all .3s;
-  box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowColor ?? p.bg ?? '#8696FE'}` : false};
+  box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
   color: ${(p) => p.color ?? 'white'};
   background: ${(p) => p.bg ?? '#8696FE'};
   padding: ${(p) => p.p ?? '10px 15px'};
@@ -74,7 +74,7 @@ export const BtnLink = styled.a<BtnLink>`
   opacity: ${(p) => p.display ?? 1};
   display: ${(p) => p.display ?? 'flex'};
   justify-content: ${(p) => p.justifyContent ?? 'center'};
-  align-items: ${(p) => p.alignItems ?? 'center'};
+  align-items: ${(p) => p.alignitems ?? 'center'};
   border-style: none;
   border-radius: ${(p) => p.br ?? '5px'};
   border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
@@ -84,7 +84,7 @@ export const BtnLink = styled.a<BtnLink>`
   min-width: ${(p) => p.minWidth};
   outline: none;
   transition: all .3s;
-  box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowColor ?? p.bg ?? '#8696FE'}` : false};
+  box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
   color: ${(p) => p.color ?? 'white'};
   background: ${(p) => p.bg ?? '#8696FE'};
   padding: ${(p) => p.p ?? '10px 15px'};

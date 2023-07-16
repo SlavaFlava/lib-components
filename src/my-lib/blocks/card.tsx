@@ -3,13 +3,13 @@ import { IGlobal } from '../models/global'
 
 
 interface ICard extends IGlobal {
-    shadowColor?: string,
+    shadowcolor?: string,
     shadow?: boolean,
     br?: string,
     border?: string,
     display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
     justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-    alignItems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
+    alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
     flexDirection?: 'column' | 'row' | 'column-reverse' | 'row-reverse',
 }
 
@@ -19,7 +19,7 @@ interface ICardInner extends IGlobal {
     height?: string,
     display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
     justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-    alignItems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
+    alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
     sx?: string,
     flex?:string,
 }
@@ -32,7 +32,7 @@ justify-content:${(p) => p.justifyContent ?? 'space-between'};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 color: ${(p) => p.color};
-box-shadow: ${(p) => p.shadow ? `0px 0px 15px 3px ${p.shadowColor ?? 'grey' }` : false};
+box-shadow: ${(p) => p.shadow ? `0px 0px 15px 3px ${p.shadowcolor ?? 'grey' }` : false};
 background: ${(p) => p.bg};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
@@ -50,7 +50,7 @@ export const CardHeader = styled.div<ICardInner>`
 display: ${(p) => p.display};
 flex:${(p)=> p.flex};
 justify-content: ${(p) => p.justifyContent };
-align-items: ${(p) => p.alignItems};
+align-items: ${(p) => p.alignitems};
 text-align: ${(p) => p.textAlign};
   min-height: ${(p) => p.minH};
   height: ${(p) => p.height};
@@ -70,7 +70,7 @@ export const CardContent = styled.div<ICardInner>`
 display: ${(p) => p.display };
 flex: ${(p)=> p.flex ?? '1'};
 justify-content: ${(p) => p.justifyContent };
-align-items: ${(p) => p.alignItems };
+align-items: ${(p) => p.alignitems };
 text-align: ${(p) => p.textAlign};
   min-height: ${(p) => p.minH};
   height: ${(p) => p.height};
@@ -89,7 +89,7 @@ ${(p)=> p.sx};
 export const CardFooter = styled.div<ICardInner>`
 display: ${(p) => p.display };
 justify-content: ${(p) => p.justifyContent };
-align-items: ${(p) => p.alignItems };
+align-items: ${(p) => p.alignitems };
 text-align: ${(p) => p.textAlign};
   min-height: ${(p) => p.minH};
   height: ${(p) => p.height};

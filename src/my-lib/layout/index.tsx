@@ -4,18 +4,18 @@ import { IGlobal } from '../models/global'
 export interface IRow extends IGlobal {
   display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
   justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-  alignItems?: 'center' | 'flex-end' | 'flex-start',
+  alignitems?: 'center' | 'flex-end' | 'flex-start',
   flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset',
 }
 export interface IBox extends IRow {
-  shadow?: string,
+  boxShadow?: string,
   br?: string,
   border?: string
 }
 
 export interface IContainer extends IBox {
   flex?: string,
-  fullWidth?: boolean
+  fullwidth?: string
 }
 
 export interface ISection extends IBox {
@@ -31,7 +31,7 @@ export const Row = styled.div<IRow>`
   display: ${(p) => p.display ?? 'flex'};
   flex-wrap: ${(p)=> p.flexWrap ?? 'wrap'};
   justify-content: ${(p) => p.justifyContent ?? 'space-between'};
-  align-items: ${(p) => p.alignItems};
+  align-items: ${(p) => p.alignitems};
   color: ${(p) => p.color};
   background: ${(p) => p.bg};
   padding: ${(p) => p.p};
@@ -48,15 +48,15 @@ ${(p)=> p.sx};
 `
 
 export const Container = styled.div<IContainer>`
-  max-width: ${(p) => p.fullWidth ? '100%' : '1300px'};
+  max-width: ${(p) => p.fullwidth ? '100%' : '1300px'};
   flex-wrap: ${(p)=> p.flexWrap ?? 'wrap'};
   flex: ${(p) => p.flex};
   width: 100%;
   margin: auto;
   display: ${(p) => p.display ?? 'block'};
   justify-content: ${(p) => p.justifyContent ?? 'space-between'};
-  align-items: ${(p) => p.alignItems ?? 'center'};
-  box-shadow:${(p) => p.shadow};
+  align-items: ${(p) => p.alignitems ?? 'center'};
+  box-shadow:${(p) => p.boxShadow};
   border-radius: ${(p) => p.br};
   border:${(p) => p.border};
   color: ${(p) => p.color};
@@ -78,8 +78,8 @@ export const Col = styled.div<ICol>`
 display: ${(p) => p.display ?? 'block'};
 flex-wrap: ${(p)=> p.flexWrap ?? 'wrap'};
 justify-content: ${(p) => p.justifyContent ?? 'space-between'};
-align-items: ${(p) => p.alignItems ?? 'center'};
-box-shadow:${(p) => p.shadow};
+align-items: ${(p) => p.alignitems ?? 'center'};
+box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 flex-wrap: wrap;
@@ -115,8 +115,8 @@ export const Box = styled.div<IBox>`
 display: ${(p) => p.display ?? 'block'};
 flex-wrap: ${(p)=> p.flexWrap ?? 'wrap'};
 justify-content: ${(p) => p.justifyContent ?? 'space-between'};
-align-items: ${(p) => p.alignItems ?? 'center'};
-box-shadow:${(p) => p.shadow};
+align-items: ${(p) => p.alignitems ?? 'center'};
+box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 color: ${(p) => p.color};
@@ -138,8 +138,8 @@ flex-wrap: ${(p)=> p.flexWrap ?? 'wrap'};
 flex: ${(p) => p.flex};
 display: ${(p) => p.display ?? 'block'};
 justify-content: ${(p) => p.justifyContent ?? 'space-between'};
-align-items: ${(p) => p.alignItems ?? 'center'};
-box-shadow:${(p) => p.shadow};
+align-items: ${(p) => p.alignitems ?? 'center'};
+box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 color: ${(p) => p.color};

@@ -4,7 +4,7 @@ import { IGlobal } from '../models/global'
 interface IAvatar extends IGlobal {
   br?: string,
   shadow?: boolean,
-  shadowColor?: string,
+  shadowcolor?: string, 
   size?:string,
   fs?:string
 }
@@ -26,7 +26,7 @@ export const Avatar = styled.div<IAvatar>`
  display: flex;
  align-items: center;
  justify-content: center;
- box-shadow: ${(p) => p.shadow ? `0px 0px 9px ${p.shadowColor ?? 'grey' }` : false};
+ box-shadow: ${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? 'grey' }` : false};
  color: ${(p) => p.color};
  background: ${(p) => p.bg};
  padding-top: ${(p) => p.pt};
