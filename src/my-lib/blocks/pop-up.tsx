@@ -17,14 +17,18 @@ interface IPopupContent extends IGlobal {
 
 }
 
+
+
 interface IPopupEclips {
   eclipseColor?: string,
   eclipseOpacity?: string,
 }
 
+
 export interface IPopup extends IPopupContent, IPopupEclips {
   children: React.ReactNode
   openPopup?: any
+
 }
 
 export const PopupContent = styled.div<IPopupContent>`
@@ -84,7 +88,7 @@ export const Popup = (props: IPopup) => {
 
         <Avatar onClick={() => props.openPopup(false)}
           sx={'position:fixed; right:30px; top:30px; transform: rotate(45deg);cursor:pointer'}
-           bg='white' fs='40px' size='50px'>
+          bg='white' fs='40px' size='50px'>
           +
         </Avatar>
       </>

@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { IGlobal } from '../models/global'
 
 
-interface ICard extends IGlobal {
+interface ICard extends IGlobal { 
     shadowcolor?: string,
     shadow?: boolean,
     br?: string,
@@ -25,14 +25,14 @@ interface ICardInner extends IGlobal {
 }
 
 export const Card = styled.article<ICard>`
-display: ${(p) => p.display ?? 'flex'};
 height: 100%;
+display: ${(p) => p.display ?? 'flex'};
 flex-direction: ${(p) => p.flexDirection ?? 'column'};
 justify-content:${(p) => p.justifyContent ?? 'space-between'};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 color: ${(p) => p.color};
-box-shadow: ${(p) => p.shadow ? `0px 0px 15px 3px ${p.shadowcolor ?? 'grey' }` : false};
+box-shadow: ${(p) => p.shadow ? `0px 0px 7px 0px ${p.shadowcolor ?? 'grey' }` : false};
 background: ${(p) => p.bg};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
@@ -52,8 +52,8 @@ flex:${(p)=> p.flex};
 justify-content: ${(p) => p.justifyContent };
 align-items: ${(p) => p.alignitems};
 text-align: ${(p) => p.textAlign};
-  min-height: ${(p) => p.minH};
-  height: ${(p) => p.height};
+min-height: ${(p) => p.minH};
+height: ${(p) => p.height};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
@@ -72,8 +72,8 @@ flex: ${(p)=> p.flex ?? '1'};
 justify-content: ${(p) => p.justifyContent };
 align-items: ${(p) => p.alignitems };
 text-align: ${(p) => p.textAlign};
-  min-height: ${(p) => p.minH};
-  height: ${(p) => p.height};
+min-height: ${(p) => p.minH};
+height: ${(p) => p.height};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};

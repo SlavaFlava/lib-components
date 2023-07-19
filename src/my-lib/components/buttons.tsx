@@ -38,6 +38,7 @@ export const Button = styled.button<IButton>`
   border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
   font-size: ${(p) => p.fs ?? '14px'} ;
   font-weight: ${(p) => p.fw} ;
+  letter-spacing: ${(p) => p.ls};
   min-height: ${(p) => p.minHeight};
   min-width: ${(p) => p.minWidth};
   outline: none;

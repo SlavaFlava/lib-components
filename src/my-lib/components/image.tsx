@@ -26,7 +26,7 @@ export const Avatar = styled.div<IAvatar>`
  display: flex;
  align-items: center;
  justify-content: center;
- box-shadow: ${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? 'grey' }` : false};
+ box-shadow: ${(p) => p.shadow ? `0px 0px 7px ${p.shadowcolor ?? 'grey' }` : false};
  color: ${(p) => p.color};
  background: ${(p) => p.bg};
  padding-top: ${(p) => p.pt};
