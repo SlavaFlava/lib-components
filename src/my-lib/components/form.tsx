@@ -22,7 +22,7 @@ interface ITextarea extends IInput{
   minH?: string
 }
 
-interface IForm extends IGlobal{
+interface IForm extends IGlobal{ 
   shadowcolor?: string,
   shadow?: string,
   br?: string,
@@ -109,8 +109,4 @@ margin-bottom: ${(p) => p.mb ?? '10px'};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
 ${(p) => p.sx};
-`
-
-export const Select = styled.select<IForm>`
-  
 `
