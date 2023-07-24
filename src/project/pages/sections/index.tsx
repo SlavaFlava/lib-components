@@ -5,7 +5,6 @@ import { Tab, Tabs, TabsContent, TabsWrapper } from '../../../my-lib/blocks/tabs
 const Sections = () => {
 
   const [tabIndex, setTabIndex] = useState(0)
-
   const dataTabs = [
     {
       tab: 'tab 0',
@@ -25,26 +24,34 @@ const Sections = () => {
     }
   ]
 
-
-
   return (
-    <TabsWrapper mw='600px' m='auto' bg='orange' p='20px' mt='35px' color='white'>
-      <Tabs p='10px' sx="border-bottom:2px solid white; text-transform:uppercase" mb='20px'>
+    <TabsWrapper mw='600px' m='auto' mt='35px' >
+      <Tabs  fullW='true' >
         {
           dataTabs.map((tab, index) => (
-            <Tab index={index} onClick={() => setTabIndex(index)}>{tab.tab}</Tab>
+            tabIndex === index 
+            ?
+            <Tab active='default' tabs='classic' mb='-1px'
+              onClick={() => setTabIndex(index)}
+              key={index}
+            >{tab.tab}</Tab>
+            :
+            <Tab tabs='classic'
+            onClick={() => setTabIndex(index)}
+            key={index}
+          >{tab.tab}</Tab>
           ))
         }
       </Tabs>
       {
         dataTabs.map((content, index) => (
-          tabIndex===index
-          ?
-          <TabsContent p='20px' index={index}>
-            {content.content}
-          </TabsContent>
-          :
-          false
+          tabIndex === index
+            ?
+            <TabsContent bg='white' shadow='true' p='20px'  key={index}>
+              {content.content}
+            </TabsContent>
+            :
+            false
         ))
       }
     </TabsWrapper>
