@@ -7,7 +7,7 @@ import { H5 } from '../../my-lib/components/typography';
 
 const Footer = () => {   
  return(    
- <LFooter bg={'#F6EFE8'} pt={'40px'} pb={'40px'}>
+ <LFooter bg={'#fff'} pt={'40px'} pb={'40px'}>
    <Container>
     <Row >
       <Col size={2}>

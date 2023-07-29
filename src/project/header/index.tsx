@@ -15,7 +15,7 @@ const menuItems = [
 ]
 const Header = () => {
   return (
-    <LHeader bg='#F6EFE8'>
+    <LHeader bg='#fff'>
       <Container>
         <Row pt={'15px'} pb={'15px'} alignitems={'center'}>
           <Box display={'flex'}>

@@ -1,31 +1,59 @@
-import { Col, Container, Row, Section } from '../../../my-lib/layout';
-import { P } from '../../../my-lib/components/typography';
+import { useState } from 'react';
+import { Tab, Tabs, TabsContent, TabsWrapper } from '../../../my-lib/blocks/tabs';
 
 
 const Home = () => {
+  const [tabIndex, setTabIndex] = useState(0)
+  const dataTabs = [
+    {
+      tab: 'tab 0',
+      content: '   Lorem0000, ipsum dolor sit amet consectetur adipisicing elit. Mollitia sunt ratione quiadignissimos, nobis eum facere id. Expedita, ea quos?'
+    },
+    {
+      tab: 'tab 1',
+      content: '   Lorem1111, ipsum dolor sit amet consectetur adipisicing elit. Mollitia sunt ratione quiadignissimos, nobis eum facere id. Expedita, ea quos?'
+    },
+    {
+      tab: 'tab 2',
+      content: '   Lorem2222, ipsum dolor sit amet consectetur adipisicing elit. Mollitia sunt ratione quiadignissimos, nobis eum facere id. Expedita, ea quos?'
+    },
+    {
+      tab: 'tab 3',
+      content: '   Lorem3333, ipsum dolor sit amet consectetur adipisicing elit. Mollitia sunt ratione quiadignissimos, nobis eum facere id. Expedita, ea quos?'
+    }
+  ]
+
   return (
-    <>
-    <Section pt={'50px'} pb={'50px'} >
-      <Container >
-        <Row>
-          <Col size={6} bg={'green'} p={'30px'} spacing={'15px'} color='white'>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sapiente!
-          </Col>
-          <Col size={3} bg={'green'} p={'30px'} spacing={'15px'}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sapiente!
-          </Col>
-          <Col size={3} bg={'green'} p={'30px'} spacing={'15px'}>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Rem, sapiente!
-          </Col>
-        </Row>
-      </Container>
-    </Section>
-    <Section bg={'#F6EFE8'} pt={'50px'}>
-       <Container fullwidth={'true'}>
-        <P> Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis, rem. Modi corporis itaque necessitatibus, ea ab quia esse ullam aspernatur eveniet consequuntur? Libero reiciendis laborum aperiam odit enim quam consequatur repudiandae accusamus, maxime, suscipit rem distinctio, perspiciatis autem quis quas laboriosam ducimus ad ipsum amet voluptatibus velit eligendi similique voluptas incidunt! Atque hic, ab consequatur id aperiam dolores repellat, eveniet quaerat quasi, beatae illum obcaecati quo? Quia aut excepturi explicabo officia, optio, provident ut cum illo odit doloremque quae? Maiores blanditiis non quia reiciendis quibusdam suscipit velit hic nemo a. Rem doloremque nihil alias vitae sunt facere, aperiam odit esse! </P>
-       </Container>
-    </Section>
-    </> 
+    <TabsWrapper mw='600px' m='auto' mt='35px' >
+      <Tabs  fullW='true' >
+        {
+          dataTabs.map((tab, index) => (
+            tabIndex === index 
+            ?
+            <Tab active='default' tabs='classic' mb='-1px'
+              onClick={() => setTabIndex(index)}
+              key={index}
+            >{tab.tab}</Tab>
+            :
+            <Tab tabs='classic'
+            onClick={() => setTabIndex(index)}
+            key={index}
+          >{tab.tab}</Tab>
+          ))
+        }
+      </Tabs>
+      {
+        dataTabs.map((content, index) => (
+          tabIndex === index
+            ?
+            <TabsContent bg='white' shadow='true' p='20px'  key={index}>
+              {content.content}
+            </TabsContent>
+            :
+            false
+        ))
+      }
+    </TabsWrapper>
   )
 }
 export default Home
