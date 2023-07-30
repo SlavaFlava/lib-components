@@ -1,11 +1,9 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal, IProportions } from '../models/global'
 
 
-interface IButton extends IGlobal {
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
+interface IButton extends IGlobal,IDisplay,IProportions {
+
   fs?: string,
   fw?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
   minHeight?: string
@@ -29,18 +27,24 @@ interface BtnLink extends IButton {
 
 export const Button = styled.button<IButton>`
   cursor: pointer;
-  opacity: ${(p) => p.display ?? 1};
   display: ${(p) => p.display ?? 'flex'};
   justify-content: ${(p) => p.justifyContent ?? 'center'};
   align-items: ${(p) => p.alignitems ?? 'center'};
+  flex-direction: ${(p) => p.flexDirection};
+  flex-wrap: ${(p) => p.flexWrap};
+  opacity: ${(p) => p.display ?? 1};
   border-style: none;
   border-radius: ${(p) => p.br ?? '5px'};
   border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
   font-size: ${(p) => p.fs ?? '14px'} ;
   font-weight: ${(p) => p.fw} ;
   letter-spacing: ${(p) => p.ls};
-  min-height: ${(p) => p.minHeight};
-  min-width: ${(p) => p.minWidth};
+  height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   outline: none;
   transition: all .3s;
   box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
@@ -70,19 +74,25 @@ ${(p)=> p.sx};
 export const BtnLink = styled.a<BtnLink>`
   
   cursor: pointer;
-  text-transform: ${(p) => p.textTransform};
-  text-decoration: ${(p) => p.textDecoration ?? 'none'};
-  opacity: ${(p) => p.display ?? 1};
   display: ${(p) => p.display ?? 'flex'};
   justify-content: ${(p) => p.justifyContent ?? 'center'};
   align-items: ${(p) => p.alignitems ?? 'center'};
+  flex-direction: ${(p) => p.flexDirection};
+  flex-wrap: ${(p) => p.flexWrap};
+  text-transform: ${(p) => p.textTransform};
+  text-decoration: ${(p) => p.textDecoration ?? 'none'};
+  opacity: ${(p) => p.display ?? 1};
   border-style: none;
   border-radius: ${(p) => p.br ?? '5px'};
   border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
   font-size: ${(p) => p.fs ?? '14px'} ;
   font-weight: ${(p) => p.fw} ;
-  min-height: ${(p) => p.minHeight};
-  min-width: ${(p) => p.minWidth};
+  height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   outline: none;
   transition: all .3s;
   box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};

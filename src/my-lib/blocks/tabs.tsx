@@ -1,19 +1,10 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal, IProportions } from '../models/global'
 
 
 
 
-interface ITabsWrapper extends IGlobal {
-  open?: boolean
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-  alignitems?: 'center' | 'flex-end' | 'flex-start',
-  flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset',
-  w?: string,
-  h?: string,
-  mw?: string,
-  mh?: string,
+interface ITabsWrapper extends IGlobal,IDisplay,IProportions {
   shadowcolor?: string,
   shadow?: string,
   br?: string,
@@ -40,14 +31,17 @@ interface ITabsContent extends ITabsWrapper {
 
 
 export const TabsWrapper = styled.section<ITabsWrapper>`
- width: ${(p) => p.w};
-  height: ${(p) => p.h};
-  max-width: ${(p) => p.mw};
-  max-height: ${(p) => p.mh};
-  display: ${(p) => p.display};
-  flex-wrap: ${(p) => p.flexWrap};
-  justify-content: ${(p) => p.justifyContent};
-  align-items: ${(p) => p.alignitems};
+ display: ${(p) => p.display};
+ flex-wrap: ${(p) => p.flexWrap};
+ justify-content: ${(p) => p.justifyContent};
+ align-items: ${(p) => p.alignitems};
+ flex-direction: ${(p) => p.flexDirection};
+ height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
   box-shadow: ${(p) => p.shadow ? `0px 0px 7px 0px ${p.shadowcolor ?? 'grey'}` : false};
   border-radius: ${(p) => p.br};
   border:${(p) => p.border}; 
@@ -67,17 +61,20 @@ export const TabsWrapper = styled.section<ITabsWrapper>`
 
 `
 export const Tabs = styled.ul<ITabs>`
+  display: ${(p) => p.display ?? 'flex'};
+  flex-wrap: ${(p) => p.flexWrap};
+  justify-content: ${(p) => p.justifyContent};
+  align-items: ${(p) => p.alignitems};
+  flex-direction: ${(p) => p.flexDirection};
   border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 box-shadow: ${(p) => p.shadow ? `0px 0px 7px 0px ${p.shadowcolor ?? 'grey'}` : false};
-    width: ${(p) => p.w};
-    height: ${(p) => p.h};
-    max-width: ${(p) => p.mw};
-    max-height: ${(p) => p.mh};
-    display: ${(p) => p.display ?? 'flex'};
-    flex-wrap: ${(p) => p.flexWrap};
-    justify-content: ${(p) => p.justifyContent};
-    align-items: ${(p) => p.alignitems};
+height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
     color: ${(p) => p.color};
     background: ${(p) => p.bg};
     padding: ${(p) => p.p};
@@ -128,14 +125,17 @@ export const Tab = styled.li<ITab>`
 
 
 export const TabsContent = styled.div<ITabsContent>`
-    width: ${(p) => p.w};
-    height: ${(p) => p.h};
-    max-width: ${(p) => p.mw};
-    max-height: ${(p) => p.mh};
     display: ${(p) => p.display};
     flex-wrap: ${(p) => p.flexWrap};
     justify-content: ${(p) => p.justifyContent};
     align-items: ${(p) => p.alignitems};
+    flex-direction: ${(p) => p.flexDirection};
+    height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
     box-shadow: ${(p) => p.shadow ? `0px 0px 7px 0px ${p.shadowcolor ?? 'grey'}` : false};
     border-radius: ${(p) => p.br};
     border:${(p) => p.border}; 

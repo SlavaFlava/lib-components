@@ -1,12 +1,12 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal } from '../models/global'
 
 
-interface IMenu extends IGlobal{
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
+interface IMenu extends IGlobal, IDisplay {
+
 }
 
-interface IMenuItem extends IGlobal{
+interface IMenuItem extends IGlobal {
   textTransform?: 'uppercase' | 'lowercase' | 'capitalize',
   fs?: string,
   ls?: string,
@@ -14,7 +14,11 @@ interface IMenuItem extends IGlobal{
 
 export const Menu = styled.ul<IMenu>`
  display: ${(props) => props.display ?? 'flex'};
- align-items: center;
+ display: ${(p) => p.display};
+ flex-wrap: ${(p) => p.flexWrap ?? 'wrap'};
+ flex-direction: ${(p) => p.flexDirection};
+  justify-content: ${(p) => p.justifyContent};
+align-items: ${(p) => p.alignitems ?? 'center'};
  background: ${(p) => p.bg};
  padding-top: ${(p) => p.pt};
  padding-bottom: ${(p) => p.pb};
@@ -24,7 +28,7 @@ export const Menu = styled.ul<IMenu>`
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
+${(p) => p.sx};
 `
 export const MenuItem = styled.li<IMenuItem>`
  font-size: ${(p) => p.fs};
@@ -39,7 +43,7 @@ export const MenuItem = styled.li<IMenuItem>`
  margin-bottom: ${(p) => p.mb};
  margin-left: ${(p) => p.ml};
  margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
+${(p) => p.sx};
  a{
   color: ${(p) => p.color};
   text-decoration: none;

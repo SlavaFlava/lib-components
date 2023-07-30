@@ -1,18 +1,13 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal } from '../models/global'
 
-export interface IRow extends IGlobal {
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-  alignitems?: 'center' | 'flex-end' | 'flex-start',
-  flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset',
-  flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse',
+export interface IRow extends IGlobal,IDisplay {
+
 }
-export interface IBox extends IRow {
+export interface IBox extends IGlobal,IDisplay {
   boxShadow?: string,
   br?: string,
   border?: string,
-
 }
 
 export interface IContainer extends IBox {

@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IGlobal, IProportions } from '../models/global'
 
 interface IAvatar extends IGlobal {
   br?: string,
@@ -10,9 +10,7 @@ interface IAvatar extends IGlobal {
   shadowHover?: string,
 }
 
-interface IImage {
-  w?: string,
-  h?: string,
+interface IImage extends IProportions {
   of?: 'contain' | 'cover' | 'fill' | 'inherit' | 'initial' | 'none' | 'revert' | 'scale-down' | 'unset',
   op?: 'center' | 'top' | 'bottom' | 'right' | 'left',
   filter?: string
@@ -51,6 +49,10 @@ ${(p) => p.sx};
 export const Image = styled.img<IImage>`
  width: ${(p) => p.w ?? '100%'};
  height: ${(p) => p.h ?? '100%'};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
  object-fit: ${(p) => p.of ?? 'cover'};
  object-position: ${(p) => p.op ?? 'center'};
  filter: ${(p) => p.filter};

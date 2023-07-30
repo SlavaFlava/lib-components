@@ -7,11 +7,9 @@ import { BtnLink, Button } from '../../../my-lib/components/buttons';
 import { Popup } from '../../../my-lib/blocks/pop-up';
 
 
-const Blocks = () => {
+const BlocksPopUp = () => {
   const [openPopup, setOpenPopup] = useState(false)
   const [openAllow, setOpenAllow] = useState(false)
-
-
 
   return (
     <Container mt={'50px'}>
@@ -19,9 +17,9 @@ const Blocks = () => {
       <Button onClick={() => setOpenPopup(!openPopup)}>Open Popup</Button>
       <Button onClick={() => setOpenAllow(!openAllow)}>Open Allow</Button>
       </Box>
-      <Popup openPopup={setOpenPopup} open={openPopup} mw='500px' eclipseOpacity='0.4'>
+      <Popup openPopup={setOpenPopup} open={openPopup}  eclipseOpacity='0.4'>
         <Card border={'1px solid'} shadow={true} shadowcolor='#F6E8F8' >
-          <CardHeader height='300px' >
+          <CardHeader h='300px' >
             <Image src='https://loremflickr.com/640/360' />
           </CardHeader>
           <CardContent pl={'15px'} pr={'15px'}>
@@ -58,4 +56,4 @@ const Blocks = () => {
     </Container>
   )
 }
-export default Blocks
+export default BlocksPopUp

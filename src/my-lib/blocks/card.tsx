@@ -1,38 +1,37 @@
 import styled from 'styled-components'
-import { IGlobal } from '../models/global'
+import { IDisplay, IGlobal, IProportions } from '../models/global'
 
 
-interface ICard extends IGlobal { 
-    shadowcolor?: string,
-    shadow?: boolean,
-    br?: string,
-    border?: string,
-    display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-    justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-    alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
-    flexDirection?: 'column' | 'row' | 'column-reverse' | 'row-reverse',
+interface ICard extends IGlobal, IDisplay, IProportions {
+  shadowcolor?: string,
+  shadow?: boolean,
+  br?: string,
+  border?: string,
 }
 
-interface ICardInner extends IGlobal {
-    textAlign?: 'left' | 'right' | 'center',
-    minH?: string,
-    height?: string,
-    display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-    justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-    alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
-    sx?: string,
-    flex?:string,
+interface ICardInner extends IGlobal, IDisplay, IProportions {
+  textAlign?: 'left' | 'right' | 'center',
+  border?: string,
+  sx?: string,
+  flex?: string,
 }
 
 export const Card = styled.article<ICard>`
-height: 100%;
+height: ${(p) => p.h ?? '100%'};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
 display: ${(p) => p.display ?? 'flex'};
+align-items: ${(p) => p.alignitems};
+flex-wrap: ${(p) => p.flexWrap};
 flex-direction: ${(p) => p.flexDirection ?? 'column'};
 justify-content:${(p) => p.justifyContent ?? 'space-between'};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 color: ${(p) => p.color};
-box-shadow: ${(p) => p.shadow ? `0px 0px 7px 0px ${p.shadowcolor ?? 'grey' }` : false};
+box-shadow: ${(p) => p.shadow ? `0px 0px 7px 0px ${p.shadowcolor ?? 'grey'}` : false};
 background: ${(p) => p.bg};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
@@ -44,16 +43,22 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
+${(p) => p.sx};
 `
 export const CardHeader = styled.div<ICardInner>`
 display: ${(p) => p.display};
-flex:${(p)=> p.flex};
-justify-content: ${(p) => p.justifyContent };
+flex:${(p) => p.flex};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection ?? 'column'};
+justify-content: ${(p) => p.justifyContent};
 align-items: ${(p) => p.alignitems};
 text-align: ${(p) => p.textAlign};
-min-height: ${(p) => p.minH};
-height: ${(p) => p.height};
+height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
@@ -64,16 +69,22 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb ?? '15px'};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
+${(p) => p.sx};
 `
 export const CardContent = styled.div<ICardInner>`
-display: ${(p) => p.display };
-flex: ${(p)=> p.flex ?? '1'};
-justify-content: ${(p) => p.justifyContent };
-align-items: ${(p) => p.alignitems };
+display: ${(p) => p.display};
+flex: ${(p) => p.flex ?? '1'};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection ?? 'column'};
+justify-content: ${(p) => p.justifyContent};
+align-items: ${(p) => p.alignitems};
 text-align: ${(p) => p.textAlign};
-min-height: ${(p) => p.minH};
-height: ${(p) => p.height};
+height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
@@ -84,15 +95,26 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb ?? '15px'};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
+${(p) => p.sx};
 `
 export const CardFooter = styled.div<ICardInner>`
-display: ${(p) => p.display };
-justify-content: ${(p) => p.justifyContent };
-align-items: ${(p) => p.alignitems };
+
+display: ${(p) => p.display};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection};
+justify-content: ${(p) => p.justifyContent};
+align-items: ${(p) => p.alignitems};
+
+flex:${(p) => p.flex};
 text-align: ${(p) => p.textAlign};
+
+  height: ${(p) => p.h};
+  width: ${(p) => p.w};
   min-height: ${(p) => p.minH};
-  height: ${(p) => p.height};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
+
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
@@ -103,7 +125,7 @@ margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
+${(p) => p.sx};
 `
 
 

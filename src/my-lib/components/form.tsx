@@ -1,46 +1,49 @@
 import React, { InputHTMLAttributes } from 'react';
 import styled from 'styled-components';
-import { IGlobal } from '../models/global';
+import { IDisplay, IGlobal, IProportions } from '../models/global';
 
 
-interface IInput extends InputHTMLAttributes<HTMLInputElement>, IGlobal {
+interface IInput extends InputHTMLAttributes<HTMLInputElement>, IGlobal , IDisplay,IProportions{
   br?: string,
   border?: string,
   fs?: string
-  w?: string
+  
   fw?:   '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
   ls?: string
   placeholder?: string
-  display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root',
-  justifyContent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start',
-  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right',
-  flexDirection?: 'column' | 'row' | 'column-reverse' | 'row-reverse',
+
 }
 
 interface ITextarea extends IInput{
-  h?: string
-  minH?: string
+
 }
 
-interface IForm extends IGlobal{ 
+interface IForm extends IGlobal,IDisplay,IProportions{ 
   shadowcolor?: string,
   shadow?: string,
   br?: string,
   border?: string,
-  w?: string
-  maxW?: string
+  
+
 }
 
 
 export const Input = styled.input<IInput>`
-align-items: ${(p) => p.alignitems};
+align-items: ${(p) => p.alignitems ?? 'center'};
 display: ${(p) => p.display ?? 'flex'};
 flex-direction: ${(p) => p.flexDirection ?? 'column'};
-justify-content:${(p) => p.justifyContent ?? 'space-between'};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection};
+justify-content:${(p) => p.justifyContent};
 outline: none;
 font-weight: ${(p) => p.fw} ;
 letter-spacing: ${(p) => p.ls};
+height: ${(p) => p.h};
 width: ${(p) => p.w ?? '100%'};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
 font-size: ${(p) => p.fs};
 border:${(p) => p.border ?? '1px solid #ccc'};
 border-radius: ${(p) => p.br};
@@ -65,9 +68,18 @@ ${(p) => p.sx};
 export const Textarea = styled.textarea<ITextarea>`
 outline: none;
 resize: none;
-width: ${(p) => p.w ?? '100%'};
+align-items: ${(p) => p.alignitems};
+display: ${(p) => p.display};
+flex-direction: ${(p) => p.flexDirection};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection};
+justify-content:${(p) => p.justifyContent};
 height: ${(p) => p.h};
-min-height: ${(p) => p.minH};
+  width: ${(p) => p.w ?? '100%'};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
 font-weight: ${(p) => p.fw} ;
 letter-spacing: ${(p) => p.ls};
 font-size: ${(p) => p.fs};
@@ -93,8 +105,17 @@ ${(p) => p.sx};
 `;
 
 export const Form = styled.form<IForm>`
-width: ${(p) => p.w};
-max-width : ${(p) => p.maxW};
+display: ${(p) => p.display};
+flex-wrap: ${(p) => p.flexWrap};
+flex-direction: ${(p) => p.flexDirection};
+justify-content: ${(p) => p.justifyContent};
+align-items: ${(p) => p.alignitems};
+height: ${(p) => p.h};
+  width: ${(p) => p.w};
+  min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.maxW};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 box-shadow: ${(p) => p.shadow ? `0px 0px 7px 0px ${p.shadowcolor ?? 'grey' }` : false};

@@ -1,6 +1,6 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom';
-import {Box, Col, Container, Row} from '../../my-lib/layout';
+import { Box, Col, Container, Row } from '../../my-lib/layout';
 import { Avatar, Image } from '../../my-lib/components/image';
 import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 import { LHeader } from '../../my-lib/sections/header';
@@ -8,7 +8,7 @@ import { Button } from '../../my-lib/components/buttons';
 
 
 const menuItems = [
-  { link: '/', name: 'Home' },
+  { link: '/layout', name: 'Layout' },
   { link: '/components', name: 'Components' },
   { link: '/blocks', name: 'Blocks' },
   { link: '/sections', name: 'Sections' },
@@ -19,9 +19,12 @@ const Header = () => {
       <Container>
         <Row pt={'15px'} pb={'15px'} alignitems={'center'}>
           <Box display={'flex'}>
-            <Avatar shadowcolor={'pink'} size={'70px'} mr={'20px'}>
-              <Image src="/logo.png" alt="logo" />
-            </Avatar>
+            <NavLink to={'/'}>
+              <Avatar shadowcolor={'pink'} size={'70px'} mr={'20px'}>
+                <Image src="/logo.png" alt="logo" />
+              </Avatar>
+            </NavLink>
+
             <Menu display={'flex'}>
               {
                 menuItems.map((e) => (
@@ -29,7 +32,7 @@ const Header = () => {
                 ))
               }
             </Menu>
-              
+
           </Box>
           <Button hover={'reverseBorder'}>Read More</Button>
         </Row>
