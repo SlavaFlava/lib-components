@@ -1,12 +1,8 @@
-
-
-
-
 const SectionsFooter = () => {
 
   return (
     <>
-Footer
+     Footer
     </>
   )
 }

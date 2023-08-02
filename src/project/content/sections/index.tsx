@@ -1,11 +1,8 @@
-
-
 const SectionsPage = () => {
-
-    return (
-       <>
-       Sections Page
-       </>
-    )
-  }
-  export default SectionsPage
+  return (
+   <>
+   Sections Page
+   </>
+  )
+}
+export default SectionsPage

@@ -1,12 +1,8 @@
-
-
-
 const Home = () => {
-
   return (
-     <>
-     Home Page
-     </>
+   <>
+   Home Page
+   </>
   )
 }
 export default Home

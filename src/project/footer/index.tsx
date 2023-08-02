@@ -7,11 +7,11 @@ import { H5 } from '../../my-lib/components/typography';
 
 const Footer = () => {   
  return(    
- <LFooter bg={'#fff'} pt={'40px'} pb={'40px'}>
+ <LFooter bg={'#FFF'} pt={'40px'} pb={'40px'}>
    <Container>
     <Row flexWrap='nowrap'>
       <Col size={2}>
-       <Avatar size={'70px'} shadowHover='true' sx={'border: 4px solid white'} >UI</Avatar> 
+       <Avatar size={'70px'} shadowHover='true' sx={'border: 4px solid white'}>UI</Avatar> 
       </Col>
       <Col size={4}>
       <Menu display={'block'}>
@@ -31,7 +31,7 @@ const Footer = () => {
         <MenuItem mt={'10px'} ls={'1px'}>Card</MenuItem>
        </Menu>
        </Col>
-      <Col size={2}>
+       <Col size={2}>
        <Menu display={'block'}>
         <H5 mb={'20px'}>Sections</H5>
         <MenuItem mt={'10px'} ls={'1px'}>Header</MenuItem>

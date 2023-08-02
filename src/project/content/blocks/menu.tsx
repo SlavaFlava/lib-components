@@ -1,13 +1,9 @@
-
-
-
-
 const BlocksMenu = () => {
 
-    return (
-      <>
-    Menu
-      </>
-    )
-  }
-  export default BlocksMenu
+  return (
+  <>
+   Menu
+  </>
+  )
+}
+export default BlocksMenu

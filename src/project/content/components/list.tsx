@@ -1,13 +1,11 @@
-
-
-
+import { List, ListItem } from "../../../my-lib/components/list"
 
 const ComponentsList = () => {
 
   return (
-    <>
-  List
-    </>
+  <>
+
+  </>
   )
 }
 export default ComponentsList

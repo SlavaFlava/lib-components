@@ -1,13 +1,8 @@
-import { useState } from 'react';
-import { Tab, Tabs, TabsContent, TabsWrapper } from '../../../my-lib/blocks/tabs';
-
-
-const Contacts = () => {
-
+const Contact = () => {
   return (
-     <>
-     Contact Page
-     </>
+   <>
+   Contact Page
+   </>
   )
 }
-export default Contacts
+export default Contact

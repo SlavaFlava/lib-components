@@ -1,13 +1,9 @@
-
-
-
-
 const ComponentsButtons = () => {
 
-    return (
-      <>
+  return (
+  <>
     Buttons
-      </>
-    )
-  }
-  export default ComponentsButtons
+  </>
+  )
+}
+export default ComponentsButtons

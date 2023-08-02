@@ -1,13 +1,9 @@
-
-
-
-
 const ComponentsTypography = () => {
 
-    return (
-      <>
+  return (
+  <>
     Typography
-      </>
-    )
-  }
-  export default ComponentsTypography
+  </>
+  )
+}
+export default ComponentsTypography

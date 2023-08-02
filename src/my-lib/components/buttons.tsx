@@ -1,56 +1,60 @@
 import styled from 'styled-components'
-import { IDisplay, IGlobal, IProportions } from '../models/global'
+import { IBorder, IDisplay, IFonts, IGlobal, IProportions } from '../models/global'
 
 
-interface IButton extends IGlobal,IDisplay,IProportions {
-
-  fs?: string,
-  fw?: '100' | '200' | '300' | '400' | '500' | '600' | '700' | '800' | '900',
-  minHeight?: string
-  minWidth?: string
-  opacity?: number
-  ls?: string,
-  br?: string,
-  border?: string,
-  shadow?: string,
-  shadowcolor?: string,
-  boxShadow?: string,
-  hover?: 'reverse' | 'reverseBorder' | 'opacity'
-  textTransform?: 'uppercase' | 'lowercase' | 'capitalise' | 'unset'
+interface IButton extends IDisplay, IProportions, IFonts, IBorder, IGlobal{
+ opacity?:number,
+ hover?: 'reverse' | 'reverseBorder' | 'opacity',
 }
-
 
 interface BtnLink extends IButton {
-  textDecoration?: 'underline' | 'line-through' | 'overline' | 'none'
+  textDecoretion?: 'underline' | 'overline' | 'line-through' | 'none'
 }
-
 
 export const Button = styled.button<IButton>`
   cursor: pointer;
+  outline: none;
+  transition: all .3s;
+  opacity: ${(p) => p.opacity ?? 1};
+
   display: ${(p) => p.display ?? 'flex'};
-  justify-content: ${(p) => p.justifyContent ?? 'center'};
+  justify-content: ${(p) => p.justifycontent ?? 'center'};
   align-items: ${(p) => p.alignitems ?? 'center'};
-  flex-direction: ${(p) => p.flexDirection};
   flex-wrap: ${(p) => p.flexWrap};
-  opacity: ${(p) => p.display ?? 1};
-  border-style: none;
-  border-radius: ${(p) => p.br ?? '5px'};
-  border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
-  font-size: ${(p) => p.fs ?? '14px'} ;
-  font-weight: ${(p) => p.fw} ;
+  flex-direction: ${(p) => p.flexDirection};
+
+  font-size: ${(p) => p.fs ?? '14px'};
+  font-weight: ${(p) => p.fw};
   letter-spacing: ${(p) => p.ls};
+  line-height: ${(p) => p.lh};
+  font-style: ${(p) => p.fontStyle};
+  text-align: ${(p) => p.textAlign};
+  text-transform: ${(p) => p.textTransform};
+
   height: ${(p) => p.h};
   width: ${(p) => p.w};
   min-height: ${(p) => p.minH};
   min-width: ${(p) => p.minW};
   max-height: ${(p) => p.maxH};
   max-width: ${(p) => p.maxW};
-  outline: none;
-  transition: all .3s;
-  box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
+
+
+  border:${(p) => p.border?? `1px solid ${p.bg ?? '#8696FE'}`};
+  border-radius: ${(p) => p.br ?? '5px'};
+  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
+  box-shadow:
+  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;`:
+         p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;`:  
+         p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
+         p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
+         p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;`:  
+         p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
+   };
+
   color: ${(p) => p.color ?? 'white'};
   background: ${(p) => p.bg ?? '#8696FE'};
   padding: ${(p) => p.p ?? '10px 15px'};
+  padding-top: ${(p) => p.pt};
   padding-bottom: ${(p) => p.pb};
   padding-left: ${(p) => p.pl};
   padding-right: ${(p) => p.pr};
@@ -59,46 +63,60 @@ export const Button = styled.button<IButton>`
   margin-bottom: ${(p) => p.mb};
   margin-left: ${(p) => p.ml};
   margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
-  padding-top: ${(p) => p.pt};
+  ${(p) => p.sx};
    &:hover {
-    background-color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.color ?? 'white' : false};
-    color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.bg ?? '#8696FE' : false};
-    border: ${(p) => p.hover == 'reverse' ? `1px solid ${p.color ?? 'white'}` : false};
+    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.color ?? 'white' : false };
+    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.bg ?? '#8696FE' : false };
+    border: ${(p)=> p.hover == 'reverse' ? `1px solid ${ p.color ?? 'white' }` : false };
     box-shadow:none;
-    opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false};
+    opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
    }
 `
 
-
 export const BtnLink = styled.a<BtnLink>`
-  
   cursor: pointer;
+  outline: none;
+  transition: all .3s;
+  text-decoration: ${(p) => p.textDecoretion ?? 'none'};
+  opacity: ${(p) => p.opacity ?? 1};
+
   display: ${(p) => p.display ?? 'flex'};
-  justify-content: ${(p) => p.justifyContent ?? 'center'};
+  justify-content: ${(p) => p.justifycontent ?? 'center'};
   align-items: ${(p) => p.alignitems ?? 'center'};
-  flex-direction: ${(p) => p.flexDirection};
   flex-wrap: ${(p) => p.flexWrap};
-  text-transform: ${(p) => p.textTransform};
-  text-decoration: ${(p) => p.textDecoration ?? 'none'};
-  opacity: ${(p) => p.display ?? 1};
-  border-style: none;
-  border-radius: ${(p) => p.br ?? '5px'};
-  border: ${(p) => p.border ?? `1px solid ${p.bg ?? '#8696FE'}`};
-  font-size: ${(p) => p.fs ?? '14px'} ;
-  font-weight: ${(p) => p.fw} ;
+  flex-direction: ${(p) => p.flexDirection};  
+ 
   height: ${(p) => p.h};
   width: ${(p) => p.w};
   min-height: ${(p) => p.minH};
   min-width: ${(p) => p.minW};
   max-height: ${(p) => p.maxH};
   max-width: ${(p) => p.maxW};
-  outline: none;
-  transition: all .3s;
-  box-shadow:${(p) => p.shadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
+
+  font-size: ${(p) => p.fs ?? '14px'};
+  font-weight: ${(p) => p.fw};
+  letter-spacing: ${(p) => p.ls};
+  line-height: ${(p) => p.lh};
+  font-style: ${(p) => p.fontStyle};
+  text-align: ${(p) => p.textAlign};
+  text-transform: ${(p) => p.textTransform};
+
+  border:${(p) => p.border?? `1px solid ${p.bg ?? '#8696FE'}`};
+  border-radius: ${(p) => p.br ?? '5px'};
+  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
+  box-shadow:
+  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;`:
+         p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;`:  
+         p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
+         p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
+         p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;`:  
+         p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
+   };
+
   color: ${(p) => p.color ?? 'white'};
   background: ${(p) => p.bg ?? '#8696FE'};
   padding: ${(p) => p.p ?? '10px 15px'};
+  padding-top: ${(p) => p.pt};
   padding-bottom: ${(p) => p.pb};
   padding-left: ${(p) => p.pl};
   padding-right: ${(p) => p.pr};
@@ -107,13 +125,12 @@ export const BtnLink = styled.a<BtnLink>`
   margin-bottom: ${(p) => p.mb};
   margin-left: ${(p) => p.ml};
   margin-right: ${(p) => p.mr};
-${(p)=> p.sx};
-  padding-top: ${(p) => p.pt};
+  ${(p) => p.sx};
    &:hover {
-    background-color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.color ?? 'white' : false};
-    color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.bg ?? '#8696FE' : false};
-    border: ${(p) => p.hover == 'reverse' ? `1px solid ${p.color ?? 'white'}` : false};
+    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.color ?? 'white' : false };
+    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.bg ?? '#8696FE' : false };
+    border: ${(p)=> p.hover == 'reverse' ? `1px solid ${ p.color ?? 'white' }` : false };
     box-shadow:none;
-    opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false};
+    opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
    }
 `
