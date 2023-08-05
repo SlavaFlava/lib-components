@@ -26,7 +26,7 @@ export interface IProportions {
   h?: string
   w?: string
   minH?: string
-  minW?: string
+  minW?: string 
   maxH?: string
   maxW?: string
 }

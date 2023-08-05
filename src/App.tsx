@@ -35,7 +35,7 @@ import ComponentsTypography from './project/content/components/typography';
 function App() {
   return (
     <div className="App">
-      <Container fullwidth='true' pl='0' pr='0' bg='#F9F9F9'>
+      <Container fullwidth='true' pl='0' pr='0' bg='#F9F9F9'> 
         <Row sx={'min-height:100vh'}>
           <Col size={2} bg='white'>
             <Routes>
@@ -48,7 +48,7 @@ function App() {
           </Col>
           <Col size={10} display='flex' flexDirection='column'>
             <Header />
-            <Section flex={'1'}>
+            <Section flex={'1'} pr='25px'>
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />

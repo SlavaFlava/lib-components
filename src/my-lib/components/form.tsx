@@ -130,7 +130,7 @@ justify-content: ${(p) => p.justifycontent};
 align-items: ${(p) => p.alignitems};
 flex-wrap: ${(p) => p.flexWrap};
 flex-direction: ${(p) => p.flexDirection};
-
+ 
 height: ${(p) => p.h};
 width: ${(p) => p.w};
 min-height: ${(p) => p.minH};
