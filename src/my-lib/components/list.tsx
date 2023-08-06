@@ -5,7 +5,7 @@ interface IList extends IProportions, IBorder, IFonts, IGlobal {
   listStyle?: 'none' | 'decimal' | 'circle' | 'disc' | 'square'
 }
 interface IListItem extends IFonts, IGlobal {
-  beforeStyle?: 'circle' | 'square' | 'LineX' | 'LineY'
+  beforeStyle?: 'circle' | 'square' | 'LineX' | 'LineY' 
   beforeContent?: string
   beforeColor?: string
   beforeSize?: string

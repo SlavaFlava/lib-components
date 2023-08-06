@@ -1,5 +1,9 @@
 import styled from 'styled-components'
 import { IBorder, IDisplay, IFonts, IGlobal, IProportions } from '../models/global'
+import { defaultTheme } from '../theme/colors'
+
+
+
 
 
 interface IButton extends IDisplay, IProportions, IFonts, IBorder, IGlobal{
@@ -52,7 +56,7 @@ export const Button = styled.button<IButton>`
    };
 
   color: ${(p) => p.color ?? 'white'};
-  background: ${(p) => p.bg ?? '#8696FE'};
+  background: ${(p) => p.bg ?? p.theme.color};
   padding: ${(p) => p.p ?? '10px 15px'};
   padding-top: ${(p) => p.pt};
   padding-bottom: ${(p) => p.pb};
@@ -72,6 +76,9 @@ export const Button = styled.button<IButton>`
     opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
    }
 `
+
+
+
 
 export const BtnLink = styled.a<BtnLink>`
   cursor: pointer;
@@ -113,7 +120,7 @@ export const BtnLink = styled.a<BtnLink>`
          p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
    };
 
-  color: ${(p) => p.color ?? 'white'};
+  color: ${(p) => p.color ?? 'white'}; 
   background: ${(p) => p.bg ?? '#8696FE'};
   padding: ${(p) => p.p ?? '10px 15px'};
   padding-top: ${(p) => p.pt};
@@ -134,3 +141,8 @@ export const BtnLink = styled.a<BtnLink>`
     opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
    }
 `
+
+Button.defaultProps = BtnLink.defaultProps = {  
+  theme: defaultTheme 
+}
+ 

@@ -5,15 +5,19 @@ import { Avatar, Image } from '../../my-lib/components/image';
 import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 import { LHeader } from '../../my-lib/sections/header';
 import { Button } from '../../my-lib/components/buttons';
+import { ThemeProvider } from 'styled-components';
+import { defaultTheme } from '../../my-lib/theme/colors';
 
 
 const menuItems = [
   { link: '/layout', name: 'Layout' },
   { link: '/components', name: 'Components' },
   { link: '/blocks', name: 'Blocks' },
-  { link: '/sections', name: 'Sections' },
+  { link: '/sections', name: 'Sections' }, 
 ]
 const Header = () => {
+   const redTheme = {...defaultTheme, bg:'green' }
+
   return (
     <LHeader bg='#FFF'>
       <Container>
@@ -33,6 +37,9 @@ const Header = () => {
               }
             </Menu>
           </Box>
+          <ThemeProvider theme= {redTheme}>
+            <Button hover={'reverseBorder'}>Read More</Button>
+          </ThemeProvider>
           <Button hover={'reverseBorder'}>Read More</Button>
         </Row>
       </Container>
