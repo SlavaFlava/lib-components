@@ -7,6 +7,7 @@ interface IAvatar extends IGlobal, IFonts {
   shadowcolor?: string
   size?:string
   shadowHover?: string
+  type?: 'primary' | 'secondary'
 }
 
 interface IImage extends IProportions {
@@ -16,7 +17,7 @@ interface IImage extends IProportions {
 }
 
 export const Avatar = styled.div<IAvatar>`
- transition: all 0.3s ease-in-out;
+ transition: all 0.3s ease-in-out; 
  cursor: pointer;
  overflow: hidden;
  display: flex;

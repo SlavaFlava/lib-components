@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 import { IBorder, IDisplay, IFonts, IGlobal, IProportions } from '../models/global'
-import { defaultTheme } from '../theme/colors'
+import { defaultTheme } from '../theme/default-theme'
 
 
 
@@ -43,9 +43,9 @@ export const Button = styled.button<IButton>`
   max-width: ${(p) => p.maxW};
 
 
-  border:${(p) => p.border?? `1px solid ${p.bg ?? '#8696FE'}`};
+  border:${(p) => p.border?? `1px solid ${p.bg ?? p.theme.primary}`};
   border-radius: ${(p) => p.br ?? '5px'};
-  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
+  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? p.theme.primary}` : false};
   box-shadow:
   ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;`:
          p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;`:  
@@ -55,8 +55,8 @@ export const Button = styled.button<IButton>`
          p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
    };
 
-  color: ${(p) => p.color ?? 'white'};
-  background: ${(p) => p.bg ?? p.theme.color};
+  color: ${(p) => p.color ?? p.theme.fontPrimary};
+  background: ${(p) => p.bg ?? p.theme.primary};
   padding: ${(p) => p.p ?? '10px 15px'};
   padding-top: ${(p) => p.pt};
   padding-bottom: ${(p) => p.pb};
@@ -68,11 +68,28 @@ export const Button = styled.button<IButton>`
   margin-left: ${(p) => p.ml};
   margin-right: ${(p) => p.mr};
   ${(p) => p.sx};
+
    &:hover {
-    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.color ?? 'white' : false };
-    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.bg ?? '#8696FE' : false };
-    border: ${(p)=> p.hover == 'reverse' ? `1px solid ${ p.color ?? 'white' }` : false };
+    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
+    ? p.color ?? p.theme.fontPrimary 
+    : p.hover == 'opacity'
+    ? false
+    : p.theme.secondary};
+
+    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
+    ? p.bg ?? p.theme.primary 
+    : p.hover == 'opacity'
+    ? false
+    : p.theme.fontSecondary};
+
+    border: ${(p)=> p.hover == 'reverse' 
+    ? `1px solid ${ p.color ?? p.theme.fontPrimary }` 
+    : p.hover == ('reverseBorder' || 'opacity')
+    ? `1px solid ${  p.bg ?? p.theme.primary }` 
+    : `1px solid ${p.theme.secondary}`};
+
     box-shadow:none;
+
     opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
    }
 `
@@ -107,10 +124,10 @@ export const BtnLink = styled.a<BtnLink>`
   font-style: ${(p) => p.fontStyle};
   text-align: ${(p) => p.textAlign};
   text-transform: ${(p) => p.textTransform};
-
-  border:${(p) => p.border?? `1px solid ${p.bg ?? '#8696FE'}`};
+  
+  border:${(p) => p.border?? `1px solid ${p.bg ?? p.theme.primary}`};
   border-radius: ${(p) => p.br ?? '5px'};
-  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? '#8696FE'}` : false};
+  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? p.theme.primary}` : false};
   box-shadow:
   ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;`:
          p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;`:  
@@ -120,8 +137,8 @@ export const BtnLink = styled.a<BtnLink>`
          p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
    };
 
-  color: ${(p) => p.color ?? 'white'}; 
-  background: ${(p) => p.bg ?? '#8696FE'};
+color: ${(p) => p.color ?? p.theme.fontPrimary};
+  background: ${(p) => p.bg ?? p.theme.primary};
   padding: ${(p) => p.p ?? '10px 15px'};
   padding-top: ${(p) => p.pt};
   padding-bottom: ${(p) => p.pb};
@@ -133,11 +150,27 @@ export const BtnLink = styled.a<BtnLink>`
   margin-left: ${(p) => p.ml};
   margin-right: ${(p) => p.mr};
   ${(p) => p.sx};
-   &:hover {
-    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.color ?? 'white' : false };
-    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' ? p.bg ?? '#8696FE' : false };
-    border: ${(p)=> p.hover == 'reverse' ? `1px solid ${ p.color ?? 'white' }` : false };
+  &:hover {
+    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
+    ? p.color ?? p.theme.fontPrimary 
+    : p.hover == 'opacity'
+    ? false
+    : p.theme.secondary};
+
+    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
+    ? p.bg ?? p.theme.primary 
+    : p.hover == 'opacity'
+    ? false
+    : p.theme.fontSecondary};
+
+    border: ${(p)=> p.hover == 'reverse' 
+    ? `1px solid ${ p.color ?? p.theme.fontPrimary }` 
+    : p.hover == ('reverseBorder' || 'opacity')
+    ? `1px solid ${  p.bg ?? p.theme.primary }` 
+    : `1px solid ${p.theme.secondary}`};
+
     box-shadow:none;
+
     opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
    }
 `
