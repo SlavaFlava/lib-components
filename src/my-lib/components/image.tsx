@@ -1,5 +1,6 @@
 import styled from 'styled-components'
 import { IFonts, IGlobal, IProportions } from '../models/global'
+import { defaultTheme } from '../theme/default-theme'
 
 interface IAvatar extends IGlobal, IFonts {
   br?: string
@@ -28,7 +29,8 @@ export const Avatar = styled.div<IAvatar>`
  height: ${(p)=> p.size ?? 50};
 
  border-radius: ${(p)=> p.br ?? '50%'};
- box-shadow: ${(p) => p.shadow ? `0px 0px 7px ${p.shadowcolor ?? 'grey' }` : false};
+ box-shadow: ${(p) => p.shadow ? `0px 0px 7px ${p.shadowcolor ?? p.theme.shadowColor}` : false};
+
 
  font-size: ${(p)=> p.fs ?? '16px'};
  font-weight: ${(p) => p.fw};
@@ -38,8 +40,21 @@ export const Avatar = styled.div<IAvatar>`
  text-align: ${(p) => p.textAlign};
  text-transform: ${(p) => p.textTransform};
 
- color: ${(p) => p.color};
- background: ${(p) => p.bg};
+ color: ${(p) => p.type == 'primary' 
+ ? p.theme.fontPrimary 
+ : p.type == 'secondary' 
+ ? p.theme.fontSecondary 
+ : p.color ?? p.theme.fontColor};
+  
+ background: ${(p) => p.type == 'primary' 
+ ? p.theme.primary 
+ : p.type == 'secondary'
+ ? p.theme.secondary 
+ :  p.theme.paper};
+
+/* p.bg ?? */
+
+ 
  padding-top: ${(p) => p.pt};
  padding-bottom: ${(p) => p.pb};
  padding-left: ${(p) => p.pl};
@@ -51,9 +66,12 @@ export const Avatar = styled.div<IAvatar>`
  ${(p) => p.sx};
  &:hover{
   transition: all 0.3s ease-in-out;
-  box-shadow: ${(p) => p.shadowHover ? `0px 0px 10px 8px ${p.shadowcolor ?? 'pink' }` : false};
+  box-shadow: ${(p) => p.shadowHover ? `0px 0px 10px 8px ${p.shadowcolor ?? 'pink'}` : false};
  }
 `
+Avatar.defaultProps = {  
+  theme: defaultTheme
+}
 
 export const Image = styled.img<IImage>`
  width: ${(p)=> p.w ?? '100%'};

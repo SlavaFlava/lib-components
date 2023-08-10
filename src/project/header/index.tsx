@@ -31,12 +31,12 @@ const Header = () => {
         <Row pt={'15px'} pb={'15px'} alignitems={'center'}>
           <Box display={'flex'}>
             <NavLink to={'/'}>
-              <Avatar shadowcolor={'pink'} shadow={'true'} size={'70px'} mr={'20px'}>
+              <Avatar shadow={'true'} size={'70px'} mr={'20px'}>
                 <Image src="/logo.png" alt="logo" />
               </Avatar>
             </NavLink>
 
-            <Avatar  shadow={'true'} size={'70px'} mr={'20px'}>
+            <Avatar  type='primary' shadow={'true'} size={'70px'} mr={'20px'}>
               AA
               </Avatar>
 
@@ -49,12 +49,12 @@ const Header = () => {
             </Menu>
           </Box>
           <ThemeProvider theme={redTheme}>
-            <Button >Read More</Button>
+            <Button>Read More</Button>
           </ThemeProvider>
          
-          <Button >Read More</Button>
+          <Button>Read More</Button>
          
-          <Button hover={'reverseBorder'}>Read More</Button>
+          <Button hover={'reverseBorder'} >Read More</Button>
 
         </Row>
       </Container>
