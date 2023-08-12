@@ -9,6 +9,8 @@ import { defaultTheme } from '../theme/default-theme'
 interface IButton extends IDisplay, IProportions, IFonts, IBorder, IGlobal{
  opacity?:number,
  hover?: 'reverse' | 'reverseBorder' | 'opacity',
+ hoverbg?: string
+ hovercolor?: string
 }
 
 interface BtnLink extends IButton {
@@ -33,7 +35,7 @@ export const Button = styled.button<IButton>`
   line-height: ${(p) => p.lh};
   font-style: ${(p) => p.fontStyle};
   text-align: ${(p) => p.textAlign};
-  text-transform: ${(p) => p.textTransform};
+  text-transform: ${(p) => p.textTransform}; 
 
   height: ${(p) => p.h};
   width: ${(p) => p.w};
@@ -74,19 +76,19 @@ export const Button = styled.button<IButton>`
     ? p.color ?? p.theme.fontPrimary 
     : p.hover == 'opacity'
     ? false
-    : p.theme.secondary};
+    : p.hoverbg ?? p.theme.secondary};
 
     color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
     ? p.bg ?? p.theme.primary 
     : p.hover == 'opacity'
     ? false
-    : p.theme.fontSecondary};
+    : p.hovercolor ?? p.theme.fontSecondary};
 
     border: ${(p)=> p.hover == 'reverse' 
     ? `1px solid ${ p.color ?? p.theme.fontPrimary }` 
     : p.hover == ('reverseBorder' || 'opacity')
     ? `1px solid ${  p.bg ?? p.theme.primary }` 
-    : `1px solid ${p.theme.secondary}`};
+    : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
 
     box-shadow:none;
 
@@ -155,19 +157,19 @@ color: ${(p) => p.color ?? p.theme.fontPrimary};
     ? p.color ?? p.theme.fontPrimary 
     : p.hover == 'opacity'
     ? false
-    : p.theme.secondary};
+    : p.hoverbg ?? p.theme.secondary};
 
     color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
     ? p.bg ?? p.theme.primary 
     : p.hover == 'opacity'
     ? false
-    : p.theme.fontSecondary};
+    : p.hovercolor ?? p.theme.fontSecondary};
 
     border: ${(p)=> p.hover == 'reverse' 
     ? `1px solid ${ p.color ?? p.theme.fontPrimary }` 
     : p.hover == ('reverseBorder' || 'opacity')
     ? `1px solid ${  p.bg ?? p.theme.primary }` 
-    : `1px solid ${p.theme.secondary}`};
+    : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
 
     box-shadow:none;
 

@@ -7,12 +7,12 @@ import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 const SidebarLayout = () => {
   return (
     <>
-      <Menu display='block'>
-        <MenuItem mt={'10px'} ls={'1px'}><NavLink to={"/layout/box"}>Box</NavLink></MenuItem>
-        <MenuItem mt={'10px'} ls={'1px'}><NavLink to={"/layout/section"}>Section</NavLink></MenuItem>
-        <MenuItem mt={'10px'} ls={'1px'}><NavLink to={"/layout/container"}>Container</NavLink></MenuItem>
-        <MenuItem mt={'10px'} ls={'1px'}><NavLink to={"/layout/row"}>Row</NavLink></MenuItem>
-        <MenuItem mt={'10px'} ls={'1px'}><NavLink to={"/layout/columns"}>Columns</NavLink></MenuItem>
+      <Menu display='block' >
+        <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB' ><NavLink to={"/layout/box"}>Box</NavLink></MenuItem>
+        <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB' ><NavLink to={"/layout/section"}>Section</NavLink></MenuItem>
+        <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB' ><NavLink to={"/layout/container"}>Container</NavLink></MenuItem>
+        <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB' ><NavLink to={"/layout/row"}>Row</NavLink></MenuItem>
+        <MenuItem mt={'18px'} ls={'0.5px'} fw='500' fs='19px' color='#655DBB' ><NavLink to={"/layout/columns"}>Columns</NavLink></MenuItem>
       </Menu>
     </>
   )

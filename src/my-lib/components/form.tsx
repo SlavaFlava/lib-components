@@ -79,7 +79,7 @@ export const Textarea = styled.textarea<ITextarea>`
   flex-wrap: ${(p) => p.flexWrap};
   flex-direction: ${(p) => p.flexDirection};
 
-  height: ${(p) => p.h};
+  height: ${(p) => p.h ?? '150px'};
   width: ${(p) => p.w ?? '100%'};
   min-height: ${(p) => p.minH};
   min-width: ${(p) => p.minW};

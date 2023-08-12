@@ -36,10 +36,6 @@ const Header = () => {
               </Avatar>
             </NavLink>
 
-            <Avatar  type='primary' shadow={'true'} size={'70px'} mr={'20px'}>
-              AA
-              </Avatar>
-
             <Menu display={'flex'}>
               {
                 menuItems.map((e) => (

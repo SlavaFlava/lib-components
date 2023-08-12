@@ -30,13 +30,14 @@ import ComponentsForm from './project/content/components/form';
 import ComponentsImage from './project/content/components/image';
 import ComponentsList from './project/content/components/list';
 import ComponentsTypography from './project/content/components/typography';
+import { Avatar } from './my-lib/components/image';
 
 function App() {
   return (
     <div className="App">
-      <Container fullwidth='true' pl='0' pr='0' bg='#F9F9F9'> 
-        <Row sx={'min-height:100vh'}>
-          <Col size={2} bg='white'>
+      <Container fullwidth='true' pl='0' pr='0' bg='#e28ccb'> 
+        <Row sx={'min-height:100vh'} pr='15px'>
+          <Col size={2} bg='white' p='30px' pt='100px'>
             <Routes>
               <Route path='/*' element={<SidebarHome />} />
               <Route path='/layout/*' element={<SidebarLayout />} />
@@ -45,9 +46,9 @@ function App() {
               <Route path='/components/*' element={<SidebarComponents />} />
             </Routes>
           </Col>
-          <Col size={10} display='flex' flexDirection='column'>
+          <Col size={10} display='flex' flexDirection='column'> 
             <Header />
-            <Section flex={'1'} pr='25px'>
+            <Section flex={'1'} mr='25px' m='20px 0' bg='white' p='20px'>
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
