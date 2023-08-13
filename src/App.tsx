@@ -1,7 +1,7 @@
-import { Route, Routes } from 'react-router-dom';
+import { NavLink, Route, Routes } from 'react-router-dom';
 import Header from './project/header';
 import Footer from './project/footer';
-import { Col, Container, Row, Section } from './my-lib/layout';
+import { Box, Col, Container, Row, Section } from './my-lib/layout';
 import Home from './project/content/pages/home';
 import SidebarLayout from './project/sidebar/sidebar-layout';
 import SidebarSections from './project/sidebar/sidebar-sections';
@@ -30,14 +30,32 @@ import ComponentsForm from './project/content/components/form';
 import ComponentsImage from './project/content/components/image';
 import ComponentsList from './project/content/components/list';
 import ComponentsTypography from './project/content/components/typography';
-import { Avatar } from './my-lib/components/image';
+import { Image } from './my-lib/components/image';
+import { Separate } from './my-lib/components/separate';
+import { defaultTheme } from './my-lib/theme/default-theme';
+import { ThemeProvider } from 'styled-components';
+import { Theme } from './project/store/theme';
+
+
+
 
 function App() {
   return (
+    <ThemeProvider theme={Theme}> 
     <div className="App">
-      <Container fullwidth='true' pl='0' pr='0' bg='#e28ccb'> 
-        <Row sx={'min-height:100vh'} pr='15px'>
-          <Col size={2} bg='white' p='30px' pt='100px'>
+      <Container fullwidth='true' pl='0' pr='0'>
+        <Row sx={'min-height:100vh'} >
+          <Col size={2} spacing='0px' bg={`linear-gradient(27deg, ${Theme.bgSecondary} 0%, ${Theme.bgPrimary} 100%)`}
+            boxShadow='rgba(0, 0, 0, 0.15) 2px -1px 10px'
+            sx='z-index:1'
+          >
+            <Box p='17px 15px'  >
+              <NavLink to={'/'} >
+                <Image h='50px' w='auto' src="/logoHeader.png" alt="logo" />
+              </NavLink>
+            </Box>
+            <Separate bg='white' mt='0px' mb='40px'/>
+
             <Routes>
               <Route path='/*' element={<SidebarHome />} />
               <Route path='/layout/*' element={<SidebarLayout />} />
@@ -45,10 +63,11 @@ function App() {
               <Route path='/blocks/*' element={<SidebarBlocks />} />
               <Route path='/components/*' element={<SidebarComponents />} />
             </Routes>
+
           </Col>
-          <Col size={10} display='flex' flexDirection='column'> 
+          <Col size={10} spacing='0px' display='flex' flexDirection='column'>
             <Header />
-            <Section flex={'1'} mr='25px' m='20px 0' bg='white' p='20px'>
+            <Section flex={'1'} bg='#F3F6F9' p='20px'>
               <Routes>
                 <Route path='/' element={<Home />} />
                 <Route path='/about' element={<About />} />
@@ -84,7 +103,9 @@ function App() {
         </Row>
       </Container>
     </div>
+    </ThemeProvider>
   )
+  
 }
 
 export default App;

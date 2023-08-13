@@ -1,5 +1,4 @@
 import styled from 'styled-components'
-import { IBox } from '../layout'
 import { IDisplay, IGlobal } from '../models/global'
 
 interface IFooter extends IGlobal, IDisplay{
@@ -12,11 +11,11 @@ min-height: ${(p) => p.minH};
 display: ${(p) => p.display ?? 'block'};
 justify-content: ${(p)=> p.justifycontent};
 align-items: ${(p)=> p.alignitems};
-flex-wrap: ${(p) => p.flexWrap};
+flex-wrap: ${(p) => p.flexWrap}; 
 flex-direction: ${(p) => p.flexDirection};
 
-color: ${(p) => p.color};
-background: ${(p) => p.bg};
+color: ${(p) => p.color ?? p.theme.fontColorBg};
+background: ${(p) => p.bg ?? p.theme.bgSecondary};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
