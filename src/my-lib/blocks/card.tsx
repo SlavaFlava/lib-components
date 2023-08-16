@@ -66,7 +66,6 @@ export const CardHeader = styled.div<ICardInner>`
   font-style: ${(p) => p.fontStyle};
   text-align: ${(p) => p.textAlign};
 
-  min-height: ${(p) => p.minH};
   height: ${(p) => p.h};
   width: ${(p) => p.w};
   min-height: ${(p) => p.minH};

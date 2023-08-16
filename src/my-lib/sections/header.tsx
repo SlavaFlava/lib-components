@@ -23,12 +23,9 @@ padding-bottom: ${(p) => p.pb};
 padding-left: ${(p) => p.pl};
 padding-right: ${(p) => p.pr};
 margin: ${(p) => p.m};
-margin-top: ${(p) => p.mt}; 
+margin-top: ${(p) => p.mt};
 margin-bottom: ${(p) => p.mb};
 margin-left: ${(p) => p.ml};
 margin-right: ${(p) => p.mr};
 ${(p) => p.sx};
 `
-LHeader.defaultProps =  {
-  theme: defaultTheme
-}

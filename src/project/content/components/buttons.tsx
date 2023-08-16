@@ -1,6 +1,6 @@
 import { Button } from "../../../my-lib/components/buttons"
 import { Separate } from "../../../my-lib/components/separate"
-import { H6, P } from "../../../my-lib/components/typography"
+import { H5, H6, P } from "../../../my-lib/components/typography"
 import { Box, Row } from "../../../my-lib/layout"
 
 const ComponentsButtons = () => {
@@ -48,4 +48,4 @@ const ComponentsButtons = () => {
     </>
   )
 }
-export default ComponentsButtons 
+export default ComponentsButtons

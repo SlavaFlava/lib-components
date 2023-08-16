@@ -13,10 +13,10 @@ interface IListItem extends IFonts, IGlobal {
   beforeTop?: string
   beforeRadius?: string
   styledLink?: 'true'
-  br?: string
+  br?:string
 }
 
-export const List = styled.ul<IList>` 
+export const List = styled.ul<IList>`
  list-style: ${(p) => p.listStyle};
  ${(p) => p.listStyle ? `
   & li{
@@ -25,7 +25,7 @@ export const List = styled.ul<IList>`
       display:none;
     }
   }
- ` : false}
+ `: false}
  height: ${(p) => p.h};
  width: ${(p) => p.w};
  min-height: ${(p) => p.minH};
@@ -53,32 +53,32 @@ export const List = styled.ul<IList>`
  text-align: ${(p) => p.textAlign};
  text-transform: ${(p) => p.textTransform};
 
+ color: ${(p) => p.color};
+ background: ${(p) => p.bg};
+ padding: ${(p) => p.p};
+ padding-top: ${(p) => p.pt};
+ padding-bottom: ${(p) => p.pb};
+ padding-left: ${(p) => p.pl ?? '30px'};
+ padding-right: ${(p) => p.pr};
+ margin: ${(p) => p.m};
+ margin-top: ${(p) => p.mt};
+ margin-bottom: ${(p) => p.mb};
+ margin-left: ${(p) => p.ml};
+ margin-right: ${(p) => p.mr};
+ ${(p) => p.sx};
+ & li{
   color: ${(p) => p.color};
-  background: ${(p) => p.bg};
-  padding: ${(p) => p.p};
-  padding-top: ${(p) => p.pt};
-  padding-bottom: ${(p) => p.pb};
-  padding-left: ${(p) => p.pl ?? '30px'};
-  padding-right: ${(p) => p.pr};
-  margin: ${(p) => p.m};
-  margin-top: ${(p) => p.mt};
-  margin-bottom: ${(p) => p.mb};
-  margin-left: ${(p) => p.ml};
-  margin-right: ${(p) => p.mr};
-  ${(p) => p.sx};
-  & li {
+  a{
     color: ${(p) => p.color};
-    a{
-      color: ${(p) => p.color};
-      text-decoration: none;
-    }
+    text-decoration: none;
   }
+ }
 `
 export const ListItem = styled.li<IListItem>`
  position: relative;
  display: flex;
  align-items: center;
- border-radius: ${(p)=> p.br};
+ border-radius: ${(p) => p.br};
 
  &:before{
   content: '${(p) => p.beforeContent}';
@@ -105,55 +105,52 @@ export const ListItem = styled.li<IListItem>`
           : false
   }
  }
-  
- ${(p) => p.styledLink ?
+${(p) => p.styledLink ?
     `
   & a{
-   ${p.fs ? `font-size: ${p.fs}` : false} ;
-   ${p.fw ? `font-weight: ${p.fw}` : false} ;
-   ${p.ls ? `letter-spacing: ${p.ls}` : false} ;
-   ${p.lh ? `line-height: ${p.lh}` : false} ;
-   ${p.fontStyle ? `font-style: ${p.fontStyle}` : false} ;
-   ${p.textAlign ? `text-align: ${p.textAlign}` : false} ;
-   ${p.textTransform ? `text-transform: ${p.textTransform}` : false} ;
-   ${p.color ? `color: ${p.color}` : false} ;
-   ${p.bg ? `background: ${p.bg}` : false} ;
-   ${p.p ? `padding: ${p.p}` : false} ;
-   ${p.pt ? `padding-top: ${p.pt}` : false} ;
-   ${p.pb ? `padding-bottom: ${p.pb}` : false} ;
-   ${p.pl ? `padding-left: ${p.pl}` : false} ;
-   ${p.pr ? `padding-right: ${p.pr}` : false} ;
-    width: 100%;
-  }  
+    ${p.fs ? `font-size: ${p.fs};` : false};
+    ${p.fw ? `font-weight: ${p.fw};` : false} ;
+    ${p.ls ? `letter-spacing: ${p.ls};` : false} ;
+    ${p.lh ? `line-height: ${p.lh};` : false} ;
+    ${p.fontStyle ? `font-style: ${p.fontStyle};` : false} ;
+    ${p.textAlign ? `text-align: ${p.textAlign};` : false} ;
+    ${p.textTransform ? `text-transform: ${p.textTransform};` : false}  ;
+    ${p.color ? `color: ${p.color};` : false} ;
+    ${p.bg ? `background: ${p.bg};` : false} ;
+    ${p.p ? `padding: ${p.p};` : false} ;
+    ${p.pt ? `padding-top: ${p.pt};` : false} ;
+    ${p.pb ? `padding-bottom: ${p.pb};` : false} ;
+    ${p.pl ? `padding-left: ${p.pl};` : false} ;
+    ${p.pr ? `padding-right: ${p.pr};` : false} ;
+     width:100%;
+   }
   `
     :
 
     `
-   ${p.fs ? `font-size: ${p.fs}` : false} ;
-   ${p.fw ? `font-weight: ${p.fw}` : false} ;
-   ${p.ls ? `letter-spacing: ${p.ls}` : false} ;
-   ${p.lh ? `line-height: ${p.lh}` : false} ;
-   ${p.fontStyle ? `font-style: ${p.fontStyle}` : false} ;
-   ${p.textAlign ? `text-align: ${p.textAlign}` : false} ;
-   ${p.textTransform ? `text-transform: ${p.textTransform}` : false} ;
-   ${p.color ? `color: ${p.color}` : false} ;
-   ${p.bg ? `background: ${p.bg}` : false} ;
-   ${p.p ? `padding: ${p.p}` : false} ;
-   ${p.pt ? `padding-top: ${p.pt}` : false} ;
-   ${p.pb ? `padding-bottom: ${p.pb}` : false} ;
-   ${p.pl ? `padding-left: ${p.pl}` : false} ;
-   ${p.pr ? `padding-right: ${p.pr}` : false} ;
+    ${p.fs ? `font-size: ${p.fs};` : false};
+    ${p.fw ? `font-weight: ${p.fw};` : false} ;
+    ${p.ls ? `letter-spacing: ${p.ls};` : false} ;
+    ${p.lh ? `line-height: ${p.lh};` : false} ;
+    ${p.fontStyle ? `font-style: ${p.fontStyle};` : false} ;
+    ${p.textAlign ? `text-align: ${p.textAlign};` : false} ;
+    ${p.textTransform ? `text-transform: ${p.textTransform};` : false}  ;
+    ${p.color ? `color: ${p.color};` : false} ;
+    ${p.bg ? `background: ${p.bg};` : false} ;
+    ${p.p ? `padding: ${p.p};` : false} ;
+    ${p.pt ? `padding-top: ${p.pt};` : false} ;
+    ${p.pb ? `padding-bottom: ${p.pb};` : false} ;
+    ${p.pl ? `padding-left: ${p.pl};` : false} ;
+    ${p.pr ? `padding-right: ${p.pr};` : false} ;
   `
   }
- 
-  margin: ${(p) => p.m};
-  margin-top: ${(p) => p.mt ?? '8px'};
-  margin-bottom: ${(p) => p.mb};
-  margin-left: ${(p) => p.ml};
-  margin-right: ${(p) => p.mr};
-  ${(p) => p.sx};
-  & a{
-      color: ${(p) => p.color};
-    }
-  
+ margin: ${(p) => p.m};
+ margin-top: ${(p) => p.mt ?? '8px'};
+ margin-bottom: ${(p) => p.mb};
+ margin-left: ${(p) => p.ml};
+ margin-right: ${(p) => p.mr};
+ ${(p) => p.sx};
+ & a{
+    color: ${(p) => p.color};
+  }
 `

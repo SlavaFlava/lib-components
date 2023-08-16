@@ -14,10 +14,10 @@ export interface IGlobal {
   sx?: string
 }
 
-export interface IDisplay {
+export interface IDisplay {  
   display?: 'flex' | 'block' | 'inline-flex' | 'inline-block' | 'inline' | 'inline-flex' | 'grid' | 'inline-grid' | 'flow-root'
   justifycontent?: 'center' | 'space-between' | 'space-around' | 'flex-end' | 'flex-start' | 'left' | 'right'
-  alignitems?: 'center' | 'flex-end' | 'flex-start' | 'left' | 'right'
+  alignitems?: 'center'| 'flex-end' | 'flex-start' | 'left' | 'right'
   flexWrap?: 'wrap' | 'wrap-reverse' | 'nowrap' | 'inherit' | 'initial' | 'unset'
   flexDirection?: 'row' | 'row-reverse' | 'column' | 'column-reverse'
 }
@@ -41,10 +41,10 @@ export interface IFonts {
   textTransform?: 'uppercase' | 'lowercase' | 'capitalize' | 'unset'
 }
 
-export interface IBorder {
+export interface IBorder { 
   border?: string
   br?: string
-  shadow?: 'variant-1' | 'variant-2' | 'variant-3' | 'variant-4' | 'variant-5' | 'variant-6'
+  shadow?: 'variant-1' | 'variant-2' |'variant-3' |'variant-4' |'variant-5' |'variant-6'
   customShadow?: string
   shadowcolor?: string
 }

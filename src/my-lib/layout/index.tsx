@@ -105,7 +105,7 @@ flex-basis: ${(p) => p.size == 1 ? `calc(8.333% - ${p.spacing ?? '7px'})` :
                           'calc(100%)'
   };
 
- color: ${(p) => p.color};
+ color: ${(p) => p.color}; 
  background: ${(p) => p.bg};
  padding: ${(p) => p.p};
  padding-top: ${(p) => p.pt};

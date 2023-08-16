@@ -11,7 +11,7 @@ min-height: ${(p) => p.minH};
 display: ${(p) => p.display ?? 'block'};
 justify-content: ${(p)=> p.justifycontent};
 align-items: ${(p)=> p.alignitems};
-flex-wrap: ${(p) => p.flexWrap}; 
+flex-wrap: ${(p) => p.flexWrap};
 flex-direction: ${(p) => p.flexDirection};
 
 color: ${(p) => p.color ?? p.theme.fontColorBg};

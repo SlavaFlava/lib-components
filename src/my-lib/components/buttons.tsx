@@ -3,14 +3,11 @@ import { IBorder, IDisplay, IFonts, IGlobal, IProportions } from '../models/glob
 import { defaultTheme } from '../theme/default-theme'
 
 
-
-
-
-interface IButton extends IDisplay, IProportions, IFonts, IBorder, IGlobal{
- opacity?:number,
- hover?: 'reverse' | 'reverseBorder' | 'opacity',
- hoverbg?: string
- hovercolor?: string
+interface IButton extends IDisplay, IProportions, IFonts, IBorder, IGlobal {
+  opacity?: number,
+  hover?: 'reverse' | 'reverseBorder' | 'opacity',
+  hoverbg?: string
+  hovercolor?: string
 }
 
 interface BtnLink extends IButton {
@@ -35,7 +32,7 @@ export const Button = styled.button<IButton>`
   line-height: ${(p) => p.lh};
   font-style: ${(p) => p.fontStyle};
   text-align: ${(p) => p.textAlign};
-  text-transform: ${(p) => p.textTransform}; 
+  text-transform: ${(p) => p.textTransform};
 
   height: ${(p) => p.h};
   width: ${(p) => p.w};
@@ -44,18 +41,18 @@ export const Button = styled.button<IButton>`
   max-height: ${(p) => p.maxH};
   max-width: ${(p) => p.maxW};
 
-
-  border:${(p) => p.border?? `1px solid ${p.bg ?? p.theme.primary}`};
+ 
+  border:${(p) => p.border ?? `1px solid ${p.bg ?? p.theme.primary}`};
   border-radius: ${(p) => p.br ?? '5px'};
   box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? p.theme.primary}` : false};
   box-shadow:
-  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;`:
-         p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;`:  
-         p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
-         p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
-         p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;`:  
-         p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
-   };
+  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;` :
+    p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;` :
+      p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+        p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+          p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;` :
+            p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px` : false
+  };
 
   color: ${(p) => p.color ?? p.theme.fontPrimary};
   background: ${(p) => p.bg ?? p.theme.primary};
@@ -70,33 +67,27 @@ export const Button = styled.button<IButton>`
   margin-left: ${(p) => p.ml};
   margin-right: ${(p) => p.mr};
   ${(p) => p.sx};
-
    &:hover {
-    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
-    ? p.color ?? p.theme.fontPrimary 
+    background-color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
+    ? p.color ?? p.theme.fontPrimary
     : p.hover == 'opacity'
-    ? false
-    : p.hoverbg ?? p.theme.secondary};
-
-    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
-    ? p.bg ?? p.theme.primary 
+      ? false
+      : p.hoverbg ?? p.theme.secondary}; 
+    color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
+    ? p.bg ?? p.theme.primary
     : p.hover == 'opacity'
-    ? false
-    : p.hovercolor ?? p.theme.fontSecondary};
+      ? false
+      : p.hovercolor ?? p.theme.fontSecondary};
 
-    border: ${(p)=> p.hover == 'reverse' 
-    ? `1px solid ${ p.color ?? p.theme.fontPrimary }` 
+    border: ${(p) => p.hover == 'reverse'
+    ? `1px solid ${p.color ?? p.theme.fontPrimary}`
     : p.hover == ('reverseBorder' || 'opacity')
-    ? `1px solid ${  p.bg ?? p.theme.primary }` 
-    : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
-
+      ? `1px solid ${p.bg ?? p.theme.primary}`
+      : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
     box-shadow:none;
-
-    opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
+    opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false}
    }
 `
-
-
 
 
 export const BtnLink = styled.a<BtnLink>`
@@ -126,20 +117,20 @@ export const BtnLink = styled.a<BtnLink>`
   font-style: ${(p) => p.fontStyle};
   text-align: ${(p) => p.textAlign};
   text-transform: ${(p) => p.textTransform};
-  
-  border:${(p) => p.border?? `1px solid ${p.bg ?? p.theme.primary}`};
+
+  border:${(p) => p.border ?? `1px solid ${p.bg ?? p.theme.primary}`};
   border-radius: ${(p) => p.br ?? '5px'};
   box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? p.theme.primary}` : false};
   box-shadow:
-  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;`:
-         p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;`:  
-         p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
-         p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
-         p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;`:  
-         p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
-   };
+  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;` :
+    p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;` :
+      p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+        p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+          p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;` :
+            p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px` : false
+  };
 
-color: ${(p) => p.color ?? p.theme.fontPrimary};
+  color: ${(p) => p.color ?? p.theme.fontPrimary};
   background: ${(p) => p.bg ?? p.theme.primary};
   padding: ${(p) => p.p ?? '10px 15px'};
   padding-top: ${(p) => p.pt};
@@ -153,31 +144,23 @@ color: ${(p) => p.color ?? p.theme.fontPrimary};
   margin-right: ${(p) => p.mr};
   ${(p) => p.sx};
   &:hover {
-    background-color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
-    ? p.color ?? p.theme.fontPrimary 
+    background-color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
+    ? p.color ?? p.theme.fontPrimary
     : p.hover == 'opacity'
-    ? false
-    : p.hoverbg ?? p.theme.secondary};
-
-    color: ${(p)=> p.hover == 'reverse' || p.hover == 'reverseBorder' 
-    ? p.bg ?? p.theme.primary 
+      ? false
+      : p.hoverbg ?? p.theme.secondary}; 
+    color: ${(p) => p.hover == 'reverse' || p.hover == 'reverseBorder'
+    ? p.bg ?? p.theme.primary
     : p.hover == 'opacity'
-    ? false
-    : p.hovercolor ?? p.theme.fontSecondary};
+      ? false
+      : p.hovercolor ?? p.theme.fontSecondary};
 
-    border: ${(p)=> p.hover == 'reverse' 
-    ? `1px solid ${ p.color ?? p.theme.fontPrimary }` 
+    border: ${(p) => p.hover == 'reverse'
+    ? `1px solid ${p.color ?? p.theme.fontPrimary}`
     : p.hover == ('reverseBorder' || 'opacity')
-    ? `1px solid ${  p.bg ?? p.theme.primary }` 
-    : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
-
+      ? `1px solid ${p.bg ?? p.theme.primary}`
+      : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
     box-shadow:none;
-
-    opacity: ${(p)=> p.hover == 'opacity' ? 0.7 : false}
+    opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false}
    }
 `
-
-Button.defaultProps = BtnLink.defaultProps = {  
-  theme: defaultTheme 
-}
- 
