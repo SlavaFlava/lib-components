@@ -30,8 +30,8 @@ const [switchBtn, setSwitchBtn] = useState(true)
           }
         </Menu>
         <Button>Purple Theme</Button>
-        <SwitchWrapper br='none' sx={`${switchBtn}`} onClick={()=> (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
-          <Switch br='none'/>
+        <SwitchWrapper br='4px' sx={`${switchBtn}`} onClick={()=> (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
+          <Switch br='4px'/>
         </SwitchWrapper>
       </Row>
     </LHeader>

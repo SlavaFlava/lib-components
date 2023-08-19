@@ -1,11 +1,11 @@
 import styled from 'styled-components'
-import { IDisplay, IGlobal } from '../models/global'
+import { IDisplay, IGlobal, IProportions } from '../models/global'
 
 export interface IRow extends IGlobal, IDisplay { 
 
 }
 
-export interface IBox extends IGlobal, IDisplay {
+export interface IBox extends IGlobal, IDisplay, IProportions {
   boxShadow?: string
   br?: string
   border?: string
@@ -51,7 +51,14 @@ export const Container = styled.div<IContainer>`
   width: 100%;
   margin: auto;
 
-  max-width: ${(p) => p.fullwidth === 'true' ? '100%' : '1300px'};
+ 
+
+  height: ${(p) => p.h };
+  width: ${(p) => p.w ?? '100%'};
+ min-height: ${(p) => p.minH};
+  min-width: ${(p) => p.minW};
+max-height: ${(p) => p.maxH};
+ max-width: ${(p) => p.fullwidth === 'true' ? '100%' : '1300px'};
 
   display: ${(p) => p.display};
   justify-content: ${(p) => p.justifycontent};
@@ -89,6 +96,13 @@ align-items: ${(p) => p.alignitems};
 box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
+
+height: ${(p) => p.h};
+width: ${(p) => p.w};
+min-height: ${(p) => p.minH};
+min-width: ${(p) => p.minW};
+max-height: ${(p) => p.maxH};
+max-width: ${(p) => p.maxW};
 
 flex-basis: ${(p) => p.size == 1 ? `calc(8.333% - ${p.spacing ?? '7px'})` :
     p.size == 2 ? `calc(16.666% - ${p.spacing ?? '7px'})` :
@@ -130,6 +144,13 @@ box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
 
+height: ${(p) => p.h};
+width: ${(p) => p.w};
+min-height: ${(p) => p.minH};
+min-width: ${(p) => p.minW};
+max-height: ${(p) => p.maxH};
+max-width: ${(p) => p.maxW};
+
 color: ${(p) => p.color};
 background: ${(p) => p.bg};
 padding: ${(p) => p.p};
@@ -155,6 +176,13 @@ align-items: ${(p) => p.alignitems};
 box-shadow:${(p) => p.boxShadow};
 border-radius: ${(p) => p.br};
 border:${(p) => p.border};
+
+height: ${(p) => p.h};
+width: ${(p) => p.w};
+min-height: ${(p) => p.minH};
+min-width: ${(p) => p.minW};
+max-height: ${(p) => p.maxH};
+max-width: ${(p) => p.maxW};
 
 color: ${(p) => p.color};
 background: ${(p) => p.bg};

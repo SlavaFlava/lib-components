@@ -37,7 +37,7 @@ export const Input = styled.input<IInput>`
   line-height: ${(p) => p.lh};
   font-style: ${(p) => p.fontStyle};
   text-align: ${(p) => p.textAlign};
-  text-transform: ${(p) => p.textTransform};
+  text-transform: ${(p) => p.textTransform}; 
 
   border:${(p) => p.border?? '1px solid #ccc'};
   border-radius: ${(p) => p.br};

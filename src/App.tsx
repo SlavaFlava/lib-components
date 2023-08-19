@@ -37,6 +37,7 @@ import { ThemeProvider } from 'styled-components';
 import { Theme } from './project/store/theme';
 import { Sidebar } from './my-lib/blocks/sidebar';
 import { observer } from 'mobx-react';
+import Customizer from './project/content/pages/customizer';
 
 
 const App = observer(  () => {
@@ -71,6 +72,7 @@ const App = observer(  () => {
                   <Route path='/' element={<Home />} />
                   <Route path='/about' element={<About />} />
                   <Route path='/contacts' element={<Contact />} />
+                  <Route path='/customizer' element={<Customizer />} />
 
                   <Route path='/layout' element={<LayoutPage />} />
                   <Route path='/layout/box' element={<LayoutBox />} />

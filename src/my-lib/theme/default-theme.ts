@@ -45,7 +45,7 @@ export const purpleTheme:ITheme = {
   bg: '#ECF2FF',
 
   fontColorBg: '#FAF8F7',
-  bgPrimary: '#BE6C9F',
+  bgPrimary: '#BE6C9F', 
   bgSecondary: '#7B577F',
   bgAccent: '#AF6EA1'
 }
