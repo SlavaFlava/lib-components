@@ -15,7 +15,7 @@ const ComponentsButtons = () => {
         <Button mr="20px">Default-hover</Button>
         <Button hover='opacity' mr="20px">Default-opacity</Button>
         <Button hover='reverse' mr="20px">Default-reverce</Button>
-        <Button hover='reverseBorder' mr="20px">Default-reverseBorder</Button>
+        <Button hover='reverseBorder' mr="20px">Default-reverseBorder</Button> 
         <H6>Hover examples</H6>
       </Row>
       <Separate />
