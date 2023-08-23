@@ -48,17 +48,15 @@ export const Row = styled.div<IRow>`
 `
 
 export const Container = styled.div<IContainer>`
-  width: 100%;
   margin: auto;
 
- 
 
-  height: ${(p) => p.h };
+  height: ${(p) => p.h};
   width: ${(p) => p.w ?? '100%'};
- min-height: ${(p) => p.minH};
+  min-height: ${(p) => p.minH};
   min-width: ${(p) => p.minW};
-max-height: ${(p) => p.maxH};
- max-width: ${(p) => p.fullwidth === 'true' ? '100%' : '1300px'};
+  max-height: ${(p) => p.maxH};
+  max-width: ${(p) => p.fullwidth === 'true' ? '100%' : '1300px'};
 
   display: ${(p) => p.display};
   justify-content: ${(p) => p.justifycontent};
@@ -104,22 +102,22 @@ min-width: ${(p) => p.minW};
 max-height: ${(p) => p.maxH};
 max-width: ${(p) => p.maxW};
 
-flex-basis: ${(p) => p.size == 1 ? `calc(8.333% - ${p.spacing ?? '7px'})` :
-    p.size == 2 ? `calc(16.666% - ${p.spacing ?? '7px'})` :
+flex-basis: ${(p) => p.size == 1 ? `calc(8.33% - ${p.spacing ?? '7px'})` :
+    p.size == 2 ? `calc(16.66% - ${p.spacing ?? '7px'})` :
       p.size == 3 ? `calc(25% - ${p.spacing ?? '7px'})` :
-        p.size == 4 ? `calc(33.333% - ${p.spacing ?? '7px'})` :
-          p.size == 5 ? `calc(41.666% - ${p.spacing ?? '7px'})` :
+        p.size == 4 ? `calc(33.33% - ${p.spacing ?? '7px'})` :
+          p.size == 5 ? `calc(41.66% - ${p.spacing ?? '7px'})` :
             p.size == 6 ? `calc(50% - ${p.spacing ?? '7px'})` :
-              p.size == 7 ? `calc(58.333% - ${p.spacing ?? '7px'})` :
-                p.size == 8 ? `calc(66.666% - ${p.spacing ?? '7px'})` :
+              p.size == 7 ? `calc(58.33% - ${p.spacing ?? '7px'})` :
+                p.size == 8 ? `calc(66.66% - ${p.spacing ?? '7px'})` :
                   p.size == 9 ? `calc(75% - ${p.spacing ?? '7px'})` :
-                    p.size == 10 ? `calc(83.333% - ${p.spacing ?? '7px'})` :
-                      p.size == 11 ? `calc(91.666% - ${p.spacing ?? '7px'})` :
+                    p.size == 10 ? `calc(83.33% - ${p.spacing ?? '7px'})` :
+                      p.size == 11 ? `calc(91.66% - ${p.spacing ?? '7px'})` :
                         p.size == 12 ? `calc(100% - ${p.spacing ?? '0px'})` :
                           'calc(100%)'
   };
 
- color: ${(p) => p.color}; 
+ color: ${(p) => p.color};
  background: ${(p) => p.bg};
  padding: ${(p) => p.p};
  padding-top: ${(p) => p.pt};

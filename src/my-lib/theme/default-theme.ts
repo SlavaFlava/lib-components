@@ -25,7 +25,6 @@ export const defaultTheme:ITheme = {
   bgSecondary: '#2D3C4A',
   bgAccent: '#587682'
 }
-
 export const purpleTheme:ITheme = {
   primary: '#9D4C4C',
   fontPrimary: '#FAF8F7',
@@ -37,7 +36,7 @@ export const purpleTheme:ITheme = {
   fontColor: '#503852',
 
   fontColorBg: '#FAF8F7',
-  bgPrimary: '#BE6C9F', 
+  bgPrimary: '#BE6C9F',
   bgSecondary: '#7B577F',
   bgAccent: '#AF6EA1'
 }

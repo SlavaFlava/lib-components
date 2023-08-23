@@ -40,7 +40,7 @@ ${(p) => p.active == 'true' ? `
 ` : false}
 `
 
-export const Switch = styled.span<ISwitchWrapper>`
+export const Swich = styled.span<ISwitchWrapper>`
   position: absolute;
   left: 3%;
   top: 1px;

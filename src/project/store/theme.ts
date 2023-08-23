@@ -4,7 +4,7 @@ import { ITheme, defaultTheme, purpleTheme } from "../../my-lib/theme/default-th
 class ThemeStore {
 
     constructor() {
-        makeAutoObservable(this) 
+        makeAutoObservable(this)
     }
 
     currentTheme: ITheme = {
@@ -15,12 +15,11 @@ class ThemeStore {
         ...purpleTheme
     }
 
-    setCustomTheme(customTheme: ITheme){
+    setCustomTheme(customTheme: ITheme) {
         this.currentTheme = {
             ...customTheme
         }
     }
-
 
     setCurrentTheme(state: boolean) {
         state

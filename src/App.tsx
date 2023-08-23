@@ -40,21 +40,21 @@ import { observer } from 'mobx-react';
 import Customizer from './project/content/pages/customizer';
 
 
-const App = observer(  () => {
+const App = observer(() => {
 
   return (
     <ThemeProvider theme={Theme.currentTheme}>
       <div className="App">
         <Container fullwidth='true' pl='0' pr='0'>
           <Row sx={'min-height:100vh'}>
-            <Col size={2} spacing='0px'   >
+            <Col size={2} spacing='0px'>
               <Sidebar type='gradient'>
                 <Box p='17px 15px'>
                   <NavLink to={'/'}>
-                    <Image h='50px' w='auto' src="/logoHeader.png" alt="logo" />
+                    <Image h='50px' w='auto' src="/logo.png" alt="logo" />
                   </NavLink>
                 </Box>
-                <Separate bg='white' mt='0px' mb='40px' />
+                <Separate bg='white' mt='0px' mb='20px' />
                 <Routes>
                   <Route path='/*' element={<SidebarHome />} />
                   <Route path='/layout/*' element={<SidebarLayout />} />
@@ -63,7 +63,6 @@ const App = observer(  () => {
                   <Route path='/components/*' element={<SidebarComponents />} />
                 </Routes>
               </Sidebar>
-
             </Col>
             <Col size={10} spacing='0px' display='flex' flexDirection='column'>
               <Header />

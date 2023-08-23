@@ -2,25 +2,24 @@ import { NavLink } from 'react-router-dom';
 import { List, ListItem } from '../../my-lib/components/list';
 import { Theme } from '../store/theme';
 
-
 const menuItems = [
   { link: '/about', name: 'About' },
   { link: '/contact', name: 'Contact' },
-  { link: '/customizer', name: 'Customizer' },
-  
+  { link: '/customizer', name: 'Customizer' }
+
 ]
 
 const SidebarHome = () => {
   return (
     <>
-      <List color='white' pl='0px'>
+      <List color='white' p="15px" pl='15px'>
         {
           menuItems.map((item) => (
             <ListItem key={item.link} styledLink='true'
               beforeStyle='circle' beforeLeft='15px' beforeColor='white' beforeSize='10px'
               mt={'5px'} p='23px 40px' ls={'1px'} bg={Theme.currentTheme.bgAccent} >
               <NavLink to={item.link}>
-              {item.name}
+               {item.name}
               </NavLink>
             </ListItem>
           ))

@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { BtnLink, BtnModern, Button } from "../../../my-lib/components/buttons"
+import { BtnModern, Button } from "../../../my-lib/components/buttons"
 import { Input } from "../../../my-lib/components/form"
 import { Theme } from "../../store/theme"
 import { Box, Col, Container, Row } from "../../../my-lib/layout"
@@ -14,7 +14,6 @@ const Customizer = observer(() => {
 
   const debounceSetCustomTheme = debounce(setCustomTheme, 10)
 
-
   useEffect(() => {
     setCustomTheme(Theme.currentTheme)
   }, [Theme.currentTheme])
@@ -26,7 +25,7 @@ const Customizer = observer(() => {
           <H6 fs="18px" mt="10px">Primary</H6>
           <Box mt="5px" display="flex" alignitems="center">
             <Input type="color" value={customTheme.primary} sx="cursor:pointer" p="0" border="none" mb="0" h="50px" w='54px'
-              onChange={(e: any) => (debounceSetCustomTheme({ ...customTheme, primary: e.target.value }))} />
+              onChange={(e: any) => debounceSetCustomTheme({ ...customTheme, primary: e.target.value })} />
             <Box bg={customTheme.primary} display="flex" alignitems="center" w='100%' h='42px'>
               <H6 ml="12px" color={customTheme.fontPrimary}>{customTheme.primary}</H6>
             </Box>
@@ -98,7 +97,7 @@ const Customizer = observer(() => {
           <H6 fs="18px" mt="10px">bg Primary</H6>
           <Box mt="5px" display="flex" alignitems="center">
             <Input type="color" value={customTheme.bgPrimary} sx="cursor:pointer" p="0" border="none" mb="0" h="50px" w='54px'
-              onChange={(e: any) => (debounceSetCustomTheme({ ...customTheme, bgPrimary: e.target.value }))} />
+              onChange={(e: any) => debounceSetCustomTheme({ ...customTheme, bgPrimary: e.target.value })} />
             <Box bg={customTheme.bgPrimary} display="flex" alignitems="center" w='100%' h='42px'>
               <H6 ml="12px" color={customTheme.fontColorBg}>{customTheme.bgPrimary}</H6>
             </Box>
@@ -118,27 +117,30 @@ const Customizer = observer(() => {
       </Row>
       <Row>
         <Col size={10}>
-          <ThemeProvider theme={customTheme}>
             <Box>
-              <BtnModern hover="victoria left">Lorem, ipsum.</BtnModern>
-              <BtnModern hover="victoria right">Lorem, ipsum.</BtnModern>
-              <BtnModern hover="victoria vertical">Lorem, ipsum.</BtnModern>
-              <BtnModern hover="victoria horizontal">Lorem, ipsum.</BtnModern>
-              
+               <BtnModern hover='victoria left'>Lorem ipsum</BtnModern>
+               <BtnModern hover='victoria right'>Lorem ipsum</BtnModern>
+               <BtnModern hover='victoria vertical'>Lorem ipsum</BtnModern>
+               <BtnModern hover='victoria horizontal'>Lorem ipsum</BtnModern>
             </Box>
-
-          </ThemeProvider>
-
         </Col>
         <Col size={2}>
-          <H6 fs='18px' mt='10px'>primary: '{customTheme.primary}',</H6>
-          <H6 fs='18px' mt='10px'>fontPrimary: '{customTheme.fontPrimary}',</H6>
-          <H6 fs='18px' mt='10px'>secondary: '{customTheme.secondary}',</H6>
-          <H6 fs='18px' mt='10px'>fontSecondary: '{customTheme.fontSecondary}',</H6>
-          <H6 fs='18px' mt='10px'>fontColorBg: '{customTheme.fontColorBg}',</H6>
-          <H6 fs='18px' mt='10px'>bgPrimary: '{customTheme.bgPrimary}',</H6>
-          <H6 fs='18px' mt='10px'>bgSecondary: '{customTheme.bgSecondary}',</H6>
-          <H6 fs='18px' mt='10px'>bgAccent: '{customTheme.bgAccent}',</H6>
+          <H6 fs='18px' mt='10px' color="red">
+            primary: '{customTheme.primary}',</H6>
+          <H6 fs='18px' mt='10px'>
+            fontPrimary: '{customTheme.fontPrimary}',</H6>
+          <H6 fs='18px' mt='10px'>
+            secondary: '{customTheme.secondary}',</H6>
+          <H6 fs='18px' mt='10px'>
+            fontSecondary: '{customTheme.fontSecondary}',</H6>
+          <H6 fs='18px' mt='10px'>
+            fontColorBg: '{customTheme.fontColorBg}',</H6>
+          <H6 fs='18px' mt='10px'>
+            bgPrimary: '{customTheme.bgPrimary}',</H6>
+          <H6 fs='18px' mt='10px'>
+            bgSecondary: '{customTheme.bgSecondary}',</H6>
+          <H6 fs='18px' mt='10px'>
+            bgAccent: '{customTheme.bgAccent}',</H6>
         </Col>
       </Row>
     </>

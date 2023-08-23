@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import {useState} from 'react';
 import { NavLink } from 'react-router-dom';
 import { Box, Col, Container, Row } from '../../my-lib/layout';
 import { Avatar, Image } from '../../my-lib/components/image';
@@ -6,7 +6,7 @@ import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 import { LHeader } from '../../my-lib/sections/header';
 import { Button } from '../../my-lib/components/buttons';
 import { Theme } from '../store/theme';
-import {  Switch, SwitchWrapper } from '../../my-lib/components/switcher';
+import { Swich, SwitchWrapper } from '../../my-lib/components/switcher';
 
 
 const menuItems = [
@@ -17,7 +17,7 @@ const menuItems = [
 ]
 const Header = () => {
 
-const [switchBtn, setSwitchBtn] = useState(true)
+  const [switchBtn, setSwitchBtn] = useState(true)
 
   return (
     <LHeader minH='86px'>
@@ -29,9 +29,10 @@ const [switchBtn, setSwitchBtn] = useState(true)
             ))
           }
         </Menu>
-        <Button>Purple Theme</Button>
-        <SwitchWrapper br='4px' sx={`${switchBtn}`} onClick={()=> (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
-          <Switch br='4px'/>
+        <Button>purple theme</Button>
+
+        <SwitchWrapper br='none' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
+           <Swich br='none'/>
         </SwitchWrapper>
       </Row>
     </LHeader>
