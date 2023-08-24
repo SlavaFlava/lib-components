@@ -1,10 +1,17 @@
 export interface ITheme {
   primary?: string,
   fontPrimary?: string,
+
   secondary?: string,
   fontSecondary?: string,
-  paper?: string,
-  fontColor?: string,
+
+  mainbg?: string
+  mainColor?: string,
+
+  paperbg?: string,
+  paperRadius?: string
+  paperColor?: string
+
   fontColorBg?: string,
   bgPrimary?: string,
   bgSecondary?: string,
@@ -16,9 +23,12 @@ export const defaultTheme:ITheme = {
 
   secondary: '#556170',
   fontSecondary: '#FAF8F7',
+  mainbg: '#F3F6F9',
+  mainColor: 'black',
 
-  paper: '#FAF8F7',
-  fontColor: '#465D76',
+  paperbg: '#FAF8F7',
+  paperRadius: '0px',
+  paperColor: '#465D76',
 
   fontColorBg: '#FAF8F7',
   bgPrimary: '#8CA5B5',
@@ -32,8 +42,10 @@ export const purpleTheme:ITheme = {
   secondary: '#8E4254',
   fontSecondary: '#FAF8F7',
 
-  paper: '#FAF8F7',
-  fontColor: '#503852',
+  paperbg: '#FAF8F7',
+  paperRadius: '0px',
+  paperColor: '#465D76',
+  mainColor: '#503852',
 
   fontColorBg: '#FAF8F7',
   bgPrimary: '#BE6C9F',

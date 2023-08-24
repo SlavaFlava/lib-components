@@ -1,6 +1,5 @@
 import styled from 'styled-components'
 import { IBorder, IDisplay, IFonts, IGlobal, IProportions } from '../models/global'
-import { defaultTheme } from '../theme/default-theme'
 
 
 interface IButton extends IDisplay, IProportions, IFonts, IBorder, IGlobal {
@@ -94,7 +93,7 @@ export const Button = styled.button<IButton>`
       : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
     box-shadow:none;
     opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false}
-   }
+   };
 `
 
 
@@ -170,7 +169,7 @@ export const BtnLink = styled.a<IBtnLink>`
       : `1px solid ${p.hoverbg ?? p.theme.secondary}`};
     box-shadow:none;
     opacity: ${(p) => p.hover == 'opacity' ? 0.7 : false}
-   }
+   };
 `
 
 export const BtnModern = styled.a<IBtnModern>`
@@ -250,10 +249,9 @@ export const BtnModern = styled.a<IBtnModern>`
   `
       : p.hover == 'victoria horizontal' ? `
 	transform: translateY(-50%) translateX(-50%) rotate(90deg);
-}
   `
         : false}
-  }
+  };
   &:hover{
     color: ${(p) => p.theme.fontSecondary};
     &:after{
@@ -267,5 +265,5 @@ export const BtnModern = styled.a<IBtnModern>`
   `
         : false}
     }
-  }
+  };
 `

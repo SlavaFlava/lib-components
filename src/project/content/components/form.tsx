@@ -1,6 +1,6 @@
 import { Button } from '../../../my-lib/components/buttons';
 import { Form, Input, Textarea } from '../../../my-lib/components/form';
-import { Separate } from '../../../my-lib/components/separate';
+import { Separate, SeparateCol } from '../../../my-lib/components/separate';
 import { H6, P } from '../../../my-lib/components/typography';
 import { Box, Col, Container, Row } from '../../../my-lib/layout';
 
@@ -38,10 +38,10 @@ const ComponentsForm = () => {
             </Box>
           </Box>
         </Col>
-        <Box sx='width:1px' bg='black'></Box>
+        <SeparateCol/>
         <Col size={6} spacing='15px'>
           <Box mb='25px'>
-            <H6 mb='10px'>Textarea Default</H6>
+            <H6 mb='10px'>Textarea Default</H6> 
             <Textarea placeholder="Massege" />
           </Box>
           <Box mb='25px'>

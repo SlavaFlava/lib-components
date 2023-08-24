@@ -1,12 +1,15 @@
 import { useEffect, useState } from "react"
-import { BtnModern, Button } from "../../../my-lib/components/buttons"
+import { BtnLink, BtnModern, Button } from "../../../my-lib/components/buttons"
 import { Input } from "../../../my-lib/components/form"
 import { Theme } from "../../store/theme"
-import { Box, Col, Container, Row } from "../../../my-lib/layout"
-import { H6 } from "../../../my-lib/components/typography"
+import { Box, Col, Paper, Row } from "../../../my-lib/layout"
+import { H3, H6, P } from "../../../my-lib/components/typography"
 import { observer } from "mobx-react"
 import debounce from "lodash/debounce";
 import { ThemeProvider } from "styled-components"
+import { Separate } from "../../../my-lib/components/separate"
+import { Card, CardContent, CardFooter, CardHeader } from '../../../my-lib/blocks/card';
+import { Image } from "../../../my-lib/components/image"
 
 const Customizer = observer(() => {
 
@@ -60,18 +63,18 @@ const Customizer = observer(() => {
         <Col size={2} >
           <H6 fs="18px" mt="10px">Paper</H6>
           <Box mt="5px" display="flex" alignitems="center">
-            <Input type="color" value={customTheme.paper} sx="cursor:pointer" p="0" border="none" mb="0" h="50px" w='54px'
-              onChange={(e: any) => debounceSetCustomTheme({ ...customTheme, paper: e.target.value })} />
-            <Box bg={customTheme.paper} display="flex" alignitems="center" w='100%' h='42px'>
-              <H6 ml="12px" color={customTheme.fontColor}>{customTheme.paper}</H6>
+            <Input type="color" value={customTheme.paperColor} sx="cursor:pointer" p="0" border="none" mb="0" h="50px" w='54px'
+              onChange={(e: any) => debounceSetCustomTheme({ ...customTheme, paperColor: e.target.value })} />
+            <Box bg={customTheme.paperColor} display="flex" alignitems="center" w='100%' h='42px'>
+              <H6 ml="12px" color={customTheme.mainColor}>{customTheme.paperColor}</H6>
             </Box>
           </Box>
           <H6 fs="18px" mt="10px">Font Color</H6>
           <Box mt="5px" display="flex" alignitems="center">
-            <Input type="color" value={customTheme.fontColor} sx="cursor:pointer" p="0" border="none" mb="0" h="50px" w='54px'
-              onChange={(e: any) => debounceSetCustomTheme({ ...customTheme, fontColor: e.target.value })} />
-            <Box bg={customTheme.fontColor} display="flex" alignitems="center" w='100%' h='42px'>
-              <H6 ml="12px" color={customTheme.paper}>{customTheme.fontColor}</H6>
+            <Input type="color" value={customTheme.mainColor} sx="cursor:pointer" p="0" border="none" mb="0" h="50px" w='54px'
+              onChange={(e: any) => debounceSetCustomTheme({ ...customTheme, mainColor: e.target.value })} />
+            <Box bg={customTheme.mainColor} display="flex" alignitems="center" w='100%' h='42px'>
+              <H6 ml="12px" color={customTheme.paperColor}>{customTheme.mainColor}</H6>
             </Box>
           </Box>
         </Col>
@@ -115,35 +118,124 @@ const Customizer = observer(() => {
           <Button mb="20px" onClick={() => Theme.setCustomTheme(customTheme)}>Apply settings</Button>
         </Col>
       </Row>
-      <Row>
-        <Col size={10}>
-            <Box>
-               <BtnModern hover='victoria left'>Lorem ipsum</BtnModern>
-               <BtnModern hover='victoria right'>Lorem ipsum</BtnModern>
-               <BtnModern hover='victoria vertical'>Lorem ipsum</BtnModern>
-               <BtnModern hover='victoria horizontal'>Lorem ipsum</BtnModern>
-            </Box>
-        </Col>
-        <Col size={2}>
-          <H6 fs='18px' mt='10px' color="red">
-            primary: '{customTheme.primary}',</H6>
-          <H6 fs='18px' mt='10px'>
-            fontPrimary: '{customTheme.fontPrimary}',</H6>
-          <H6 fs='18px' mt='10px'>
-            secondary: '{customTheme.secondary}',</H6>
-          <H6 fs='18px' mt='10px'>
-            fontSecondary: '{customTheme.fontSecondary}',</H6>
-          <H6 fs='18px' mt='10px'>
-            fontColorBg: '{customTheme.fontColorBg}',</H6>
-          <H6 fs='18px' mt='10px'>
-            bgPrimary: '{customTheme.bgPrimary}',</H6>
-          <H6 fs='18px' mt='10px'>
-            bgSecondary: '{customTheme.bgSecondary}',</H6>
-          <H6 fs='18px' mt='10px'>
-            bgAccent: '{customTheme.bgAccent}',</H6>
-        </Col>
+      <Row >
+        <ThemeProvider theme={customTheme}>
+          <Separate mt="25px" mb="25px" />
+          <Col size={10}>
+            <Row>
+              <BtnModern hover='victoria left' w="calc(20% - 7px)">Lorem ipsum</BtnModern>
+              <BtnModern hover='victoria right' w="calc(20% - 7px)">Lorem ipsum</BtnModern>
+              <BtnModern hover='victoria vertical' w="calc(20% - 7px)">Lorem ipsum</BtnModern>
+              <BtnModern hover='victoria horizontal' w="calc(20% - 7px)">Lorem ipsum</BtnModern>
+              <BtnModern hover='victoria horizontal' w="calc(20% - 7px)">Lorem ipsum</BtnModern>
+            </Row>
+            <Row mt="20px">
+              <Col size={4}>
+                <Card border='1px solid #F6EFE8' pb='20px' shadow={'variant-6'} >
+                  <CardHeader h='230px'>
+                    <Image src='https://loremflickr.com/640/340' />
+                  </CardHeader>
+                  <CardContent pl='15px' pr='15px'>
+                    <H3 mb='10px'>Card Title</H3>
+                    <P lh='1.4em'>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis repellat assumenda culpa mollitia similique. Quod quam dolore ratione. Facere pariatur, dolore ipsam hic maxime mollitia id ut deserunt ducimus animi!
+                    </P>
+                  </CardContent>
+                  <CardFooter p='15px' display='flex'>
+                    <BtnLink mr={'10px'} hover={'reverseBorder'}>
+                      Read More
+                    </BtnLink>
+                    <BtnLink hover={'reverseBorder'}>
+                      Subscribe
+                    </BtnLink>
+                  </CardFooter>
+                </Card>
+              </Col>
+              <Col size={4}>
+                <Card border='1px solid #F6EFE8' pb='10px' shadow={'variant-2'} >
+                  <CardHeader h='230px'>
+                    <Image src='https://loremflickr.com/640/350' />
+                  </CardHeader>
+                  <CardContent pl='15px' pr='15px'>
+                    <H3 mb='10px'>Card Title</H3>
+                    <P lh='1.4em'>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis repellat assumenda culpa mollitia similique. Quod quam dolore ratione. Facere pariatur, dolore ipsam hic maxime mollitia id ut deserunt ducimus animi!
+                    </P>
+                  </CardContent>
+                  <CardFooter p='15px' display='flex'>
+                    <BtnLink mr={'10px'} hover={'reverseBorder'}>
+                      Read More
+                    </BtnLink>
+                    <BtnLink hover={'reverseBorder'}>
+                      Subscribe
+                    </BtnLink>
+                  </CardFooter>
+                </Card>
+              </Col>
+              <Col size={4}>
+                <Card border='1px solid #F6EFE8' pb='10px' shadow={'variant-4'} >
+                  <CardHeader h='230px'>
+                    <Image src='https://loremflickr.com/640/360' />
+                  </CardHeader>
+                  <CardContent pl='15px' pr='15px'>
+                    <H3 mb='10px'>Card Title</H3>
+                    <P lh='1.4em'>
+                      Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis repellat assumenda culpa mollitia similique. Quod quam dolore ratione. Facere pariatur, dolore ipsam hic maxime mollitia id ut deserunt ducimus animi!
+                    </P>
+                  </CardContent>
+                  <CardFooter p='15px' display='flex'>
+                    <BtnLink mr={'10px'} hover={'reverseBorder'}>
+                      Read More
+                    </BtnLink>
+                    <BtnLink hover={'reverseBorder'}>
+                      Subscribe
+                    </BtnLink>
+                  </CardFooter>
+                </Card>
+              </Col>
+            </Row>
+            <Row mt="20px">
+              <Col size={4} h="200px">
+                <Paper>
+                  text
+                </Paper>
+              </Col>
+              <Col size={4} h="200px">
+                <Paper>
+                  text
+                </Paper>
+              </Col>
+              <Col size={4} h="200px">
+                <Paper>
+                  text
+                </Paper>
+              </Col>
+            </Row>
+            <Paper>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Cum, labore.
+            </Paper>
+          </Col>
+          <Col size={2}>
+            <H6 fs='18px' mt='10px'>
+              primary: '{customTheme.primary}',</H6>
+            <H6 fs='18px' mt='10px'>
+              fontPrimary: '{customTheme.fontPrimary}',</H6>
+            <H6 fs='18px' mt='10px'>
+              secondary: '{customTheme.secondary}',</H6>
+            <H6 fs='18px' mt='10px'>
+              fontSecondary: '{customTheme.fontSecondary}',</H6>
+            <H6 fs='18px' mt='10px'>
+              fontColorBg: '{customTheme.fontColorBg}',</H6>
+            <H6 fs='18px' mt='10px'>
+              bgPrimary: '{customTheme.bgPrimary}',</H6>
+            <H6 fs='18px' mt='10px'>
+              bgSecondary: '{customTheme.bgSecondary}',</H6>
+            <H6 fs='18px' mt='10px'>
+              bgAccent: '{customTheme.bgAccent}',</H6>
+          </Col>
+        </ThemeProvider>
       </Row>
     </>
   )
 })
-export default Customizer
+export default Customizer 

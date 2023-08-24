@@ -6,7 +6,7 @@ import { Menu, MenuItem } from '../../my-lib/blocks/menu';
 import { LHeader } from '../../my-lib/sections/header';
 import { Button } from '../../my-lib/components/buttons';
 import { Theme } from '../store/theme';
-import { Swich, SwitchWrapper } from '../../my-lib/components/switcher';
+import { Switch, SwitchWrapper } from '../../my-lib/components/switcher';
 
 
 const menuItems = [
@@ -32,7 +32,7 @@ const Header = () => {
         <Button>purple theme</Button>
 
         <SwitchWrapper br='none' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
-           <Swich br='none'/>
+           <Switch br='none'/>
         </SwitchWrapper>
       </Row>
     </LHeader>
