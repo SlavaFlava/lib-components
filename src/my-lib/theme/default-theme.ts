@@ -1,3 +1,4 @@
+
 export interface ITheme {
   primary?: string,
   fontPrimary?: string,
@@ -9,7 +10,6 @@ export interface ITheme {
   mainColor?: string,
 
   paperbg?: string,
-  paperRadius?: string
   paperColor?: string
 
   fontColorBg?: string,
@@ -17,17 +17,20 @@ export interface ITheme {
   bgSecondary?: string,
   bgAccent?: string
 } 
+
+
+
 export const defaultTheme:ITheme = {
   primary: '#6A7578',
   fontPrimary: '#FAF8F7',
 
   secondary: '#556170',
   fontSecondary: '#FAF8F7',
+  
   mainbg: '#F3F6F9',
   mainColor: 'black',
 
   paperbg: '#FAF8F7',
-  paperRadius: '0px',
   paperColor: '#465D76',
 
   fontColorBg: '#FAF8F7',
@@ -35,7 +38,7 @@ export const defaultTheme:ITheme = {
   bgSecondary: '#2D3C4A',
   bgAccent: '#587682'
 }
-export const purpleTheme:ITheme = {
+export const purpleTheme:ITheme = { 
   primary: '#9D4C4C',
   fontPrimary: '#FAF8F7',
 
@@ -43,7 +46,6 @@ export const purpleTheme:ITheme = {
   fontSecondary: '#FAF8F7',
 
   paperbg: '#FAF8F7',
-  paperRadius: '0px',
   paperColor: '#465D76',
   mainColor: '#503852',
 

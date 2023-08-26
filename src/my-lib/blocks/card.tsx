@@ -37,8 +37,8 @@ ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)
 };
 box-shadow:${(p) => p.customShadow}; 
 
-color: ${(p) => p.color ?? p.theme.fontColor};
-background: ${(p) => p.bg ?? p.theme.paper};
+color: ${(p) => p.color ?? p.theme.paperColor};
+background: ${(p) => p.bg ?? p.theme.paperbg};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};

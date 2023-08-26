@@ -31,8 +31,8 @@ const Header = () => {
         </Menu>
         <Button>purple theme</Button>
 
-        <SwitchWrapper br='none' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
-           <Switch br='none'/>
+        <SwitchWrapper br='5px' active={`${switchBtn}`} onClick={() => (setSwitchBtn(!switchBtn), Theme.setCurrentTheme(switchBtn))}>
+           <Switch br='5px'/>
         </SwitchWrapper>
       </Row>
     </LHeader>

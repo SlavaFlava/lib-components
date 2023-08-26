@@ -1,23 +1,27 @@
 import styled from 'styled-components'
 import { IBorder, IDisplay, IGlobal, IProportions } from '../models/global'
 
-export interface IRow extends IGlobal, IDisplay { 
+export interface IRow extends IGlobal, IDisplay {
 
 }
 
-export interface IBox extends IGlobal, IDisplay, IProportions {
+export interface IBox extends IDisplay, IProportions, IBorder, IGlobal {
+
+}
+
+export interface IContainer extends IDisplay, IProportions,  IGlobal{
+  flex?: string
+  fullwidth?: string
   boxShadow?: string
   br?: string
   border?: string
 }
 
-export interface IContainer extends IBox {
+export interface ISection extends IDisplay, IProportions,  IGlobal {
   flex?: string
-  fullwidth?: string
-}
-
-export interface ISection extends IBox {
-  flex?: string
+  boxShadow?: string
+  br?: string
+  border?: string
 }
 
 export interface ICol extends IBox {
@@ -25,7 +29,7 @@ export interface ICol extends IBox {
   spacing?: string
 }
 
-export interface IPaper extends IBox, IBorder {
+export interface IPaper extends IBox{
 
 }
 
@@ -53,7 +57,6 @@ export const Row = styled.div<IRow>`
 
 export const Container = styled.div<IContainer>`
   margin: auto;
-
 
   height: ${(p) => p.h};
   width: ${(p) => p.w ?? '100%'};
@@ -95,9 +98,17 @@ flex-direction: ${(p) => p.flexDirection};
 justify-content: ${(p) => p.justifycontent};
 align-items: ${(p) => p.alignitems};
 
-box-shadow:${(p) => p.boxShadow};
-border-radius: ${(p) => p.br};
-border:${(p) => p.border};
+
+  border-radius: ${(p) => p.br};
+  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? p.theme.primary}` : false};
+  box-shadow:
+  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;` :
+    p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;` :
+      p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+        p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+          p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;` :
+            p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px` : false
+  };
 
 height: ${(p) => p.h};
 width: ${(p) => p.w};
@@ -142,9 +153,17 @@ flex-direction: ${(p) => p.flexDirection};
 justify-content: ${(p) => p.justifycontent};
 align-items: ${(p) => p.alignitems};
 
-box-shadow:${(p) => p.boxShadow};
-border-radius: ${(p) => p.br};
-border:${(p) => p.border};
+
+  border-radius: ${(p) => p.br};
+  box-shadow:${(p) => p.customShadow ? `0px 0px 9px ${p.shadowcolor ?? p.bg ?? p.theme.primary}` : false};
+  box-shadow:
+  ${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;` :
+    p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;` :
+      p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+        p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+          p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;` :
+            p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px` : false
+  };
 
 height: ${(p) => p.h};
 width: ${(p) => p.w};
@@ -182,20 +201,20 @@ max-height: ${(p) => p.maxH};
 max-width: ${(p) => p.maxW};
 
 border:${(p) => p.border};
-border-radius: ${(p) => p.br ?? p.theme.borderRadius};
+border-radius: ${(p) => p.br};
 box-shadow:
-${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;`:
-         p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;`:  
-         p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
-         p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;`:  
-         p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;`:  
-         p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px`: false  
-};
+${(p) => p.shadow == 'variant-1' ? `${p.shadowcolor ?? 'rgba(100, 100, 111, 0.2)'} 0px 7px 29px 0px;` :
+    p.shadow == 'variant-2' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 0px 2px 8px 0px;` :
+      p.shadow == 'variant-3' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.05)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+        p.shadow == 'variant-4' ? `${p.shadowcolor ?? 'rgba(99, 99, 99, 0.2)'} 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;` :
+          p.shadow == 'variant-5' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 2.4px 2.4px 3.2px;` :
+            p.shadow == 'variant-6' ? `${p.shadowcolor ?? 'rgba(0, 0, 0, 0.15)'} 0px 2px 8px 0px, rgba(0, 0, 0, 0.05) 0px 5px 10px` : false
+  };
 box-shadow:${(p) => p.customShadow}; 
 
-color: ${(p) => p.color};
-background: ${(p) => p.bg ?? p.theme.paper};
-padding: ${(p) => p.p};
+color: ${(p) => p.color ?? p.theme.paperColor};
+background: ${(p) => p.bg ?? p.theme.paperbg};
+padding: ${(p) => p.p ?? '20px'};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};
 padding-left: ${(p) => p.pl};
@@ -226,8 +245,8 @@ min-width: ${(p) => p.minW};
 max-height: ${(p) => p.maxH}; 
 max-width: ${(p) => p.maxW};
 
-color: ${(p) => p.color};
-background: ${(p) => p.bg};
+color: ${(p) => p.color ?? p.theme.mainColor};
+background: ${(p) => p.bg ?? p.theme.mainbg};
 padding: ${(p) => p.p};
 padding-top: ${(p) => p.pt};
 padding-bottom: ${(p) => p.pb};

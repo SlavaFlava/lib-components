@@ -51,7 +51,7 @@ const App = observer(() => {
               <Sidebar type='gradient'>
                 <Box p='17px 15px'>
                   <NavLink to={'/'}>
-                    <Image h='50px' w='auto' src="/logoHeader.png" alt="logo" />
+                    <Image h='50px' w='auto' src="/logoHeader.png" alt="logo" /> 
                   </NavLink>
                 </Box>
                 <Separate bg='white' mt='0px' mb='20px' />
