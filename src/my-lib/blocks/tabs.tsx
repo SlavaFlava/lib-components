@@ -11,7 +11,7 @@ interface ITabs extends ITabsWrapper {
 }
 
 interface ITab extends IGlobal {
-  tabs?: 'underline' | 'classic' | 'modern'
+  tabs?: 'underline' | 'classic' | 'modern' 
   active?: string
 }
 

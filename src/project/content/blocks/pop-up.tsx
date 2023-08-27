@@ -21,7 +21,7 @@ const BlocksPopUp = () => {
 
       <Popup openPopup={setOpenPopup} open={openPopup} eclipseOpacity='0.4'>
         <Card border='1px solid #F6EFE8' pb='10px' shadow={'variant-1'} shadowcolor='#F6EFE8'>
-          <CardHeader h='300px'>
+          <CardHeader h='300px'> 
             <Image src='https://loremflickr.com/640/360' />
           </CardHeader>
           <CardContent pl='15px' pr='15px'>

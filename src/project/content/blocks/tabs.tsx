@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Tab, Tabs, TabsContent, TabsWrapper } from '../../../my-lib/blocks/tabs';
+import * as T from '../../../my-lib/blocks/tabs';
 
 const BlocksTabs = () => {
 
@@ -25,36 +25,36 @@ const BlocksTabs = () => {
   ]
 
   return (
-    <TabsWrapper maxW='600px'  m='55px auto' >
-    <Tabs>
+    <T.TabsWrapper maxW='600px'  m='55px auto' >
+    <T.Tabs>
       {
         dataTabs.map((tab, index) => (
           index === tabIndex
             ?
-            <Tab active='default' tabs='classic' mb='-1px'
+            <T.Tab active='default' tabs='classic' mb='-1px'
               onClick={() => setTabIndex(index)}
               key={index}
-            >{tab.tab}</Tab>
+            >{tab.tab}</T.Tab>
             :
-            <Tab tabs='classic'
+            <T.Tab tabs='classic'
               onClick={() => setTabIndex(index)}
               key={index}
-            >{tab.tab}</Tab>
+            >{tab.tab}</T.Tab>
         ))
       }
-    </Tabs>
-    {
+    </T.Tabs>
+    { 
       dataTabs.map((content, index) => (
         index === tabIndex
           ?
-          <TabsContent bg='white' shadow='variant-1' p='20px' key={index}>
+          <T.TabsContent bg='white' shadow='variant-1' p='20px' key={index}>
             {content.content}
-          </TabsContent>
+          </T.TabsContent>
           :
           false
       ))
     }
-  </TabsWrapper>
+  </T.TabsWrapper>
   )
 }
 export default BlocksTabs

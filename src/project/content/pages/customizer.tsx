@@ -3,7 +3,7 @@ import { BtnModern, BtnLink, Button } from "../../../my-lib/components/buttons"
 import { Input } from "../../../my-lib/components/form"
 import { Theme } from "../../store/theme"
 import { Box, Col, Container, Paper, Row, Section } from "../../../my-lib/layout"
-import { H6, H1, H3, P } from "../../../my-lib/components/typography"
+import { H6, H1, H3, P  } from "../../../my-lib/components/typography"
 import { observer } from "mobx-react"
 import debounce from "lodash/debounce";
 import { ThemeProvider } from "styled-components"
@@ -203,7 +203,7 @@ const Customizer = observer(() => {
                 <Col size={4}>
                   <Card pb='20px' shadow={'variant-3'}>
                     <CardHeader h='230px'>
-                      <Image src='https://loremflickr.com/640/360' />
+                      <Image src='https://loremflickr.com/640/360' /> 
                     </CardHeader>
                     <CardContent pl='15px' pr='15px'>
                       <H3 mb='10px'>Card Title</H3>
